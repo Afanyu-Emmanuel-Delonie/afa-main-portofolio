@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import Loader from './components/Loader.jsx';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
 import Stats from './components/Stats.jsx';
@@ -15,6 +17,10 @@ import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+
+  if (loading) return <Loader onDone={() => setLoading(false)} />;
+
   return (
     <>
       <Nav />
@@ -35,3 +41,4 @@ export default function App() {
     </>
   );
 }
+
