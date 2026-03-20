@@ -21,7 +21,7 @@ export default function Nav() {
             &lt;Afanyu/&gt;
           </a>
 
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden xl:flex items-center gap-8">
             {links.map((l) => (
               <a key={l.name} href={l.href} className="text-zinc-400 hover:text-white transition-colors duration-300 relative group" style={{ fontFamily: 'Geist, sans-serif' }}>
                 {l.name}
@@ -30,17 +30,17 @@ export default function Nav() {
             ))}
           </div>
 
-          <a href="#contact" className="hidden md:inline-block px-6 py-2.5 bg-[#F59E0B] hover:bg-[#F59E0B]/90 text-[#18181B] font-semibold rounded-lg transition-all duration-300 hover:scale-105" style={{ fontFamily: 'Geist, sans-serif' }}>
+          <a href="#contact" className="hidden xl:inline-block px-6 py-2.5 bg-[#F59E0B] hover:bg-[#F59E0B]/90 text-[#18181B] font-semibold rounded-lg transition-all duration-300 hover:scale-105" style={{ fontFamily: 'Geist, sans-serif' }}>
             Let's Talk
           </a>
 
-          <button onClick={() => setOpen(!open)} className="md:hidden text-white hover:text-[#F59E0B] transition-colors" aria-label="Toggle menu">
+          <button onClick={() => setOpen(!open)} className="xl:hidden text-white hover:text-[#F59E0B] transition-colors" aria-label="Toggle menu">
             {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
         {open && (
-          <div className="md:hidden py-6 border-t border-zinc-800/50 flex flex-col gap-4">
+          <div className="xl:hidden py-6 border-t border-zinc-800/50 flex flex-col gap-4">
             {links.map((l) => (
               <a key={l.name} href={l.href} onClick={() => setOpen(false)} className="text-zinc-400 hover:text-white transition-colors py-2" style={{ fontFamily: 'Geist, sans-serif' }}>
                 {l.name}

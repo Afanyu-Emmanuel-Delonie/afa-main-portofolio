@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router';
 import Loader from './components/Loader.jsx';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
@@ -15,12 +16,10 @@ import CTA from './components/CTA.jsx';
 import Testimonials from './components/Testimonials.jsx';
 import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
+import ScrollToTop from './components/ScrollToTop.jsx';
+import ProjectDetailPage from './pages/ProjectDetailPage.jsx';
 
-export default function App() {
-  const [loading, setLoading] = useState(true);
-
-  if (loading) return <Loader onDone={() => setLoading(false)} />;
-
+function HomePage() {
   return (
     <>
       <Nav />
@@ -42,3 +41,18 @@ export default function App() {
   );
 }
 
+export default function App() {
+  const [loading, setLoading] = useState(true);
+
+  if (loading) return <Loader onDone={() => setLoading(false)} />;
+
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/projects/:id" element={<ProjectDetailPage />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}

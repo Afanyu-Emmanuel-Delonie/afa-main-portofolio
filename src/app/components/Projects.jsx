@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { Link } from 'react-router';
 import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import { projects } from '../../data/projects.js';
-import CaseStudyModal from './CaseStudyModal.jsx';
 import Reveal from './Reveal.jsx';
 
 const HIGHLIGHT_COUNT = 3;
@@ -9,8 +8,6 @@ const highlighted = projects.slice(0, HIGHLIGHT_COUNT);
 const hasMore = projects.length > HIGHLIGHT_COUNT;
 
 export default function Projects() {
-  const [selected, setSelected] = useState(null);
-
   return (
     <section id="projects" className="bg-[#18181B] border-t border-zinc-800">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
@@ -55,9 +52,13 @@ export default function Projects() {
                           <Github className="w-4 h-4" /> GitHub
                         </a>
                       </div>
-                      <button onClick={() => setSelected(project)} className="flex items-center gap-1 text-sm text-[#F59E0B] hover:underline cursor-pointer" style={{ fontFamily: 'Geist, sans-serif' }}>
+                      <Link
+                        to={`/projects/${id}`}
+                        className="flex items-center gap-1 text-sm text-[#F59E0B] hover:underline"
+                        style={{ fontFamily: 'Geist, sans-serif' }}
+                      >
                         Case Study <ArrowRight className="w-3.5 h-3.5" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -74,8 +75,6 @@ export default function Projects() {
           </Reveal>
         )}
       </div>
-
-      {selected && <CaseStudyModal project={selected} onClose={() => setSelected(null)} />}
     </section>
   );
 }
