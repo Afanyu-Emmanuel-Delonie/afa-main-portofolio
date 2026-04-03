@@ -24,35 +24,26 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section id="testimonials" className="bg-[#18181B] border-t border-zinc-800">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
+      <div className="max-container padding-container section-padding">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-3" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-            What Clients <span className="text-[#F59E0B]">Say</span>
-          </h2>
-          <p className="text-zinc-400" style={{ fontFamily: 'Geist, sans-serif' }}>
-            Don't just take my word for it
-          </p>
+          <h2 className="section-title mb-3">What Clients <span className="text-brand">Say</span></h2>
+          <p className="section-subtitle">Don't just take my word for it</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map(({ name, role, quote, initials }, i) => (
-            <div key={i} className="group relative bg-zinc-900 border border-zinc-800 hover:border-[#F59E0B]/50 rounded-2xl p-8 transition-all duration-300">
+            <div key={i} className="card-dark group relative p-8">
               <Quote className="w-8 h-8 text-[#F59E0B]/30 mb-4" />
-
-              <p className="text-zinc-400 leading-relaxed mb-6 text-sm" style={{ fontFamily: 'Geist, sans-serif' }}>
-                "{quote}"
-              </p>
-
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#F59E0B]/20 border border-[#F59E0B]/30 flex items-center justify-center">
-                  <span className="text-xs font-bold text-[#F59E0B]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{initials}</span>
+              <p className="body-sm text-zinc-400 mb-6">"{quote}"</p>
+              <div className="flexStart gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#F59E0B]/20 border border-[#F59E0B]/30 flexCenter">
+                  <span className="text-xs font-bold text-brand" style={{ fontFamily: 'var(--font-heading)' }}>{initials}</span>
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-white" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{name}</p>
-                  <p className="text-xs text-zinc-500" style={{ fontFamily: 'Geist, sans-serif' }}>{role}</p>
+                  <p className="body-sm font-semibold text-white">{name}</p>
+                  <p className="text-xs text-zinc-500">{role}</p>
                 </div>
               </div>
-
               <div className="absolute top-0 right-0 w-20 h-20 border-t-2 border-r-2 border-[#F59E0B]/0 group-hover:border-[#F59E0B]/30 rounded-tr-2xl transition-all duration-300" />
             </div>
           ))}

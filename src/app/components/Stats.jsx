@@ -10,17 +10,15 @@ const stats = [
 export default function Stats() {
   return (
     <section className="bg-[#18181B] border-zinc-800">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-14">
+      <div className="max-container padding-container py-14">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
           {stats.map(({ value, label }, i) => (
             <Reveal key={label} delay={i * 100}>
-              <div className="group flex flex-col items-center text-center p-6 bg-zinc-900 border border-zinc-800 hover:border-[#F59E0B]/50 rounded-2xl transition-all duration-300">
-                <div className="text-4xl font-bold text-white mb-1" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              <div className="card-dark group flexCenter flex-col text-center p-6">
+                <div className="text-4xl font-bold text-white mb-1" style={{ fontFamily: 'var(--font-heading)' }}>
                   {value}
                 </div>
-                <div className="text-sm text-zinc-400" style={{ fontFamily: 'Geist, sans-serif' }}>
-                  {label}
-                </div>
+                <div className="body-sm text-zinc-400">{label}</div>
               </div>
             </Reveal>
           ))}

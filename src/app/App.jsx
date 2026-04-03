@@ -7,7 +7,6 @@ import Stats from './components/Stats.jsx';
 import About from './components/About.jsx';
 import Services from './components/Services.jsx';
 import TechStack from './components/TechStack.jsx';
-import Skills from './components/Skills.jsx';
 import Projects from './components/Projects.jsx';
 import Journey from './components/Journey.jsx';
 import HowIWork from './components/HowIWork.jsx';
@@ -18,6 +17,7 @@ import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import ProjectDetailPage from './pages/ProjectDetailPage.jsx';
+import ProjectsLibraryPage from './pages/ProjectsLibraryPage.jsx';
 
 function HomePage() {
   return (
@@ -28,7 +28,6 @@ function HomePage() {
       <About />
       <Services />
       <TechStack />
-      <Skills />
       <Projects />
       <Journey />
       <HowIWork />
@@ -51,6 +50,7 @@ export default function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/projects" element={<ProjectsLibraryPage />} />
         <Route path="/projects/:id" element={<ProjectDetailPage />} />
       </Routes>
     </BrowserRouter>

@@ -34,14 +34,10 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="bg-[#18181B] border-t border-zinc-800">
-      <div className="max-w-3xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
+      <div className="max-w-3xl mx-auto padding-container section-padding">
         <Reveal className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-3" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-            Frequently Asked <span className="text-[#F59E0B]">Questions</span>
-          </h2>
-          <p className="text-zinc-400" style={{ fontFamily: 'Geist, sans-serif' }}>
-            Everything you might want to know before reaching out
-          </p>
+          <h2 className="section-title mb-3">Frequently Asked <span className="text-brand">Questions</span></h2>
+          <p className="section-subtitle">Everything you might want to know before reaching out</p>
         </Reveal>
 
         <div className="space-y-3">
@@ -50,14 +46,14 @@ export default function FAQ() {
               <div className="border border-zinc-800 rounded-2xl overflow-hidden">
                 <button
                   onClick={() => setOpen(open === i ? null : i)}
-                  className="w-full flex items-center justify-between px-6 py-5 text-left bg-zinc-900 hover:bg-zinc-800/60 transition-colors duration-200"
+                  className="w-full flexBetween px-6 py-5 text-left bg-zinc-900 hover:bg-zinc-800/60 transition-colors duration-200"
                 >
-                  <span className="text-white font-medium pr-4" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{q}</span>
-                  <ChevronDown className={`w-5 h-5 text-[#F59E0B] shrink-0 transition-transform duration-300 ${open === i ? 'rotate-180' : ''}`} />
+                  <span className="body-md text-white font-medium pr-4">{q}</span>
+                  <ChevronDown className={`w-5 h-5 text-brand shrink-0 transition-transform duration-300 ${open === i ? 'rotate-180' : ''}`} />
                 </button>
                 {open === i && (
                   <div className="px-6 py-5 bg-zinc-900/50 border-t border-zinc-800">
-                    <p className="text-zinc-400 leading-relaxed" style={{ fontFamily: 'Geist, sans-serif' }}>{a}</p>
+                    <p className="body-md text-zinc-400">{a}</p>
                   </div>
                 )}
               </div>
