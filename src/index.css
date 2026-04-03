@@ -37,7 +37,7 @@
 
 /* ─── CSS Variables ─────────────────────────────────────────── */
 :root {
-  --font-size: 18px;
+  --font-size: 16px;
   --background: #18181B;
   --foreground: #FAFAFA;
   --border: rgba(255, 255, 255, 0.08);
@@ -127,22 +127,22 @@
   }
 
   .body-lg {
-    @apply text-xl leading-relaxed;
-    font-family: var(--font-body);
-  }
-
-  .body-md {
     @apply text-lg leading-relaxed;
     font-family: var(--font-body);
   }
 
-  .body-sm {
+  .body-md {
     @apply text-base leading-relaxed;
     font-family: var(--font-body);
   }
 
+  .body-sm {
+    @apply text-sm leading-relaxed;
+    font-family: var(--font-body);
+  }
+
   .label-xs {
-    @apply text-sm font-semibold uppercase tracking-widest;
+    @apply text-xs font-semibold uppercase tracking-widest;
     font-family: var(--font-body);
   }
 
