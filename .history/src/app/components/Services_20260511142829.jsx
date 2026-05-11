@@ -1,4 +1,4 @@
-import { Globe, Smartphone, BarChart2, Layout } from 'lucide-react';
+import { Globe, Smartphone, BarChart2 } from 'lucide-react';
 import Reveal from './Reveal.jsx';
 
 const services = [

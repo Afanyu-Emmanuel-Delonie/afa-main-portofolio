@@ -22,7 +22,7 @@ export default function Hero() {
             </div>
             <div className="flex flex-wrap gap-4 pt-4">
               <a href="#contact" className="group btn-primary">
-               Hire Me 
+               Hire Me
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a href="/cv.pdf" download className="btn-outline">

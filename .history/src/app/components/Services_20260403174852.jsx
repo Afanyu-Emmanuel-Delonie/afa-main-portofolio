@@ -1,12 +1,12 @@
-import { Globe, Smartphone, BarChart2, Layout } from 'lucide-react';
+import { Globe, Smartphone, BarChart2 } from 'lucide-react';
 import Reveal from './Reveal.jsx';
 
 const services = [
   {
     title: 'Responsive Web Design',
-    description: 'Modern, performant web interfaces with a focus on UI/UX and clean aesthetics.',
+    description: 'Modern, performant web apps built with React and Tailwind CSS.',
     icon: Globe,
-    features: ['Figma to React', 'Bento Grid Layouts', 'Tailwind CSS', 'Mobile First'],
+    features: ['Next.js & React', 'Tailwind CSS', 'SEO Optimized', 'Mobile First'],
   },
   {
     title: 'Cross-Platform Mobile',
@@ -15,10 +15,10 @@ const services = [
     features: ['Flutter & Dart', 'iOS & Android', 'Offline Support', 'Push Notifications'],
   },
   {
-    title: 'Web Applications',
-    description: 'Scalable SaaS platforms and data-rich systems with complex logic.',
-    icon: Layout, 
-    features: ['API Integration', 'Dashboard Systems', 'Secure Auth', 'State Management'],
+    title: 'Analytics Dashboards',
+    description: 'Specialized layouts for complex data and enterprise monitoring.',
+    icon: BarChart2,
+    features: ['Real-time Data', 'Custom Charts', 'Enterprise Ready', 'Export Reports'],
   },
 ];
 

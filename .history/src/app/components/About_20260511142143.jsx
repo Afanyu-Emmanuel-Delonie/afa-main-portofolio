@@ -36,12 +36,12 @@ export default function About() {
                 Crafting Digital <span className="text-brand">Solutions</span>
               </h2>
             </div>
-<p className="body-md text-zinc-400">
-  I am a Software Engineer dedicated to building high-performance digital products that drive market growth. With over two years of experience in web and mobile development, I bridge the gap between complex system architecture and business strategy to engineer scalable, commercially successful ventures.
-</p>
-<p className="body-md text-zinc-400">
-  My technical work is backed by analytical rigor from the GICA Online Research Program at Andrews University. I leverage this foundation to build data-rich platforms and fintech solutions that move the needle, transforming bold ideas into impactful, user-centric engines for growth.
-</p>
+            <p className="body-md text-zinc-400">
+              I'm a passionate software engineer with over 2 years of hands-on experience building web and mobile applications. I thrive at the intersection of clean code and great user experience — turning complex problems into elegant, scalable solutions.
+            </p>
+            <p className="body-md text-zinc-400">
+              From responsive web platforms to cross-platform mobile apps and data-rich dashboards, I bring a full-stack mindset to every project. I care deeply about performance, accessibility, and delivering work that actually moves the needle for clients.
+            </p>
             <div className="grid grid-cols-2 gap-3 pt-2">
               {traits.map(({ icon, label }) => (
                 <div key={label} className="flex items-center gap-2 px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl">

@@ -22,7 +22,7 @@ export default function Hero() {
             </div>
             <div className="flex flex-wrap gap-4 pt-4">
               <a href="#contact" className="group btn-primary">
-               Hire Me 
+               Hire Me
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
               <a href="/cv.pdf" download className="btn-outline">
@@ -36,8 +36,10 @@ export default function Hero() {
             <div className="relative overflow-hidden rounded-2xl border border-zinc-800 group-hover:border-[#F59E0B]/50 transition-all duration-500">
               <img src={heroImage} alt="Afanyu Emmanuel - Software Engineer" width={600} height={700} fetchpriority="high" className="w-full h-auto object-cover object-center scale-110 grayscale group-hover:grayscale-0 transition-all duration-700 ease-out" />
             </div>
-            <div className="absolute -bottom-6 -right-6 px-6 py-4 bg-brand rounded-xl shadow-2xl border-4 border-[#18181B]">
+            <div className="curv bg-[#18181B]">
+              <div className="build-curve section-item-curve  -bottom-6 -right-6 px-6 py-4 bg-brand rounded-xl shadow-2xl border-4 border-[#18181B]">
               <div className="heading-sm text-[#18181B]">Let's Build</div>
+            </div>
             </div>
           </Reveal>
         </div>

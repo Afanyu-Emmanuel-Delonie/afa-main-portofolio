@@ -1,4 +1,4 @@
-import { Globe, Smartphone, BarChart2, Layout } from 'lucide-react';
+import { Globe, Smartphone, BarChart2 } from 'lucide-react';
 import Reveal from './Reveal.jsx';
 
 const services = [
@@ -17,7 +17,7 @@ const services = [
   {
     title: 'Web Applications',
     description: 'Scalable SaaS platforms and data-rich systems with complex logic.',
-    icon: Layout, 
+    icon: Layout, // or Code
     features: ['API Integration', 'Dashboard Systems', 'Secure Auth', 'State Management'],
   },
 ];

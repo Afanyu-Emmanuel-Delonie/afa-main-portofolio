@@ -36,6 +36,7 @@ export default function Skills() {
         <p className="section-subtitle">Technologies I work with every day</p>
       </div>
       <div className="space-y-4">
+        <MarqueeRow items={row1} />
         <MarqueeRow items={row2} reverse />
       </div>
     </section>

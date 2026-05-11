@@ -243,4 +243,13 @@
 .hide-scrollbar::-webkit-scrollbar { display: none; }
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-
+/* ─── button curve ─────────────────────────────────────────────── */
+.build-curve{
+  background-color: #18181B;
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ background-color: #18181B; 
+ padding: 15px;
+ border-radius: 0px 30px 0px 0px;
+}

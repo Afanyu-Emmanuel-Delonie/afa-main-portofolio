@@ -1,7 +1,9 @@
-
+const row1 = [
+  'Flutter', 'React JS', 'Tailwind CSS', 'TypeScript', 'JavaScript', 'Next.js', 'HTML & CSS',
+];
 
 const row2 = [
-  'Django', 'Django REST', 'Firebase', 'Spring Boot', 'Git', 'UI/UX', 'Python', 'PostgreSQL', 'Tailwind CSS',  'Flutter', 'React JS',
+  'Django', 'Django REST', 'Firebase', 'Spring Boot', 'Git', 'UI/UX', 'Pyt', 'PostgreSQL',
 ];
 
 function SkillBadge({ name }) {
@@ -36,6 +38,7 @@ export default function Skills() {
         <p className="section-subtitle">Technologies I work with every day</p>
       </div>
       <div className="space-y-4">
+        <MarqueeRow items={row1} />
         <MarqueeRow items={row2} reverse />
       </div>
     </section>

@@ -37,10 +37,10 @@ export default function About() {
               </h2>
             </div>
 <p className="body-md text-zinc-400">
-  I am a Software Engineer dedicated to building high-performance digital products that drive market growth. With over two years of experience in web and mobile development, I bridge the gap between complex system architecture and business strategy to engineer scalable, commercially successful ventures.
+  I am a Software Engineer dedicated to building high-performance digital ecosystems that drive market growth. With over two years of experience crafting seamless web and mobile applications, I bridge the gap between complex system architecture and business strategy. My work is defined by a "Senior-level" minimalist aesthetic and a commitment to engineering scalable solutions that transform user needs into commercially successful ventures.
 </p>
 <p className="body-md text-zinc-400">
-  My technical work is backed by analytical rigor from the GICA Online Research Program at Andrews University. I leverage this foundation to build data-rich platforms and fintech solutions that move the needle, transforming bold ideas into impactful, user-centric engines for growth.
+  Beyond development, I leverage a rigorous analytical foundation built through the GICA Online Research Program organized by Andrews University. This background in structured inquiry fuels my passion for financial inclusion and innovation, allowing me to engineer data-rich platforms like dashboards and fintech solutions that move the needle. I don't just write code; I build the technical engines that empower businesses and communities to scale.
 </p>
             <div className="grid grid-cols-2 gap-3 pt-2">
               {traits.map(({ icon, label }) => (
