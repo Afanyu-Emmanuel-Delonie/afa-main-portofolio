@@ -17,7 +17,7 @@ export default function Projects() {
           <p className="section-subtitle">{tx.sub}</p>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6">
           {featuredProjects.map((project, i) => {
             const { id, title, desc, stack, live, github, color, category, banner } = project;
             return (

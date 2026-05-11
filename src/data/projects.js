@@ -8,6 +8,10 @@ import facBanner from '../assets/fac-1.png';
 import fac2 from '../assets/fac-2.png';
 import fac3 from '../assets/fac-3.png';
 import fac4 from '../assets/fac-4.png';
+import muhinzi1 from '../assets/muhinzi-1.png';
+import muhinzi2 from '../assets/muhinzi-2.png';
+import muhinzi3 from '../assets/muhinzi-3.png';
+import muhinzi4 from '../assets/muhinzi-4.png';
 
 export const projects = [
   {
@@ -98,7 +102,7 @@ export const projects = [
     stack: ['Figma', 'UI/UX', 'Prototyping'],
     live: null,
     github: null,
-    banner: null,
+    banner: muhinzi1,
     color: 'from-lime-500/20 to-green-500/20',
     category: 'UI/UX',
     featured: false,
@@ -108,7 +112,7 @@ export const projects = [
       problem: 'Farmers and cooperatives lacked a unified digital channel to manage cooperative operations, track produce, and reach end consumers directly.',
       solution: 'Designed a comprehensive UI/UX covering cooperative management tools, a farmer marketplace, and a consumer-facing store — all in one cohesive product.',
       outcome: 'A complete design prototype ready for development handoff, covering all three user roles with consistent design language.',
-      images: [],
+      images: [muhinzi1, muhinzi2, muhinzi3, muhinzi4],
       tools: ['Figma', 'Prototyping', 'User Research', 'Wireframing', 'Design Systems'],
       sections: [
         { heading: 'Cooperative Management', body: 'Tools for cooperative administrators to manage members, track contributions, and distribute payments.' },
