@@ -107,7 +107,7 @@ export default function Contact() {
 
             {/* LinkedIn, GitHub, Location — single row */}
             <Reveal delay={300}>
-              <div className="card-darker px-5 py-4 flex items-center justify-between gap-2">
+              <div className="card-darker px-5 py-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {secondaryChannels.filter(c => !c.copyable).map(({ icon: Icon, label, value, href }) => (
                   <div key={label} className="flex items-center gap-2 min-w-0">
                     <div className="w-8 h-8 rounded-lg bg-zinc-800 flexCenter shrink-0">

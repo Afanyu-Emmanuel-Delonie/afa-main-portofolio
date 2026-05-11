@@ -37,7 +37,8 @@ export default function Hero() {
           <Reveal delay={150} className="relative group">
             <div className="absolute -inset-4 bg-[#F59E0B]/10 rounded-2xl blur-2xl group-hover:bg-[#F59E0B]/20 transition-all duration-500" />
             <div className="relative overflow-hidden rounded-2xl border border-zinc-800 group-hover:border-[#F59E0B]/50 transition-all duration-500">
-              <img src={heroImage} alt="Afanyu Emmanuel - Software Engineer" width={600} height={700} fetchpriority="high" className="w-full h-auto object-cover object-center scale-110 grayscale group-hover:grayscale-0 transition-all duration-700 ease-out" />
+              <img src={heroImage} alt="Afanyu Emmanuel - Software Engineer" width={600} height={700} fetchpriority="high"
+                className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-700 ease-out" />
             </div>
             <div className="absolute -bottom-6 -right-6 px-6 py-4 bg-brand rounded-xl shadow-2xl border-4 border-[#18181B]">
               <div className="heading-sm text-[#18181B]">Let's Build</div>
@@ -46,8 +47,8 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#F59E0B]/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#F59E0B]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-64 h-64 lg:w-96 lg:h-96 bg-[#F59E0B]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-64 h-64 lg:w-96 lg:h-96 bg-[#F59E0B]/5 rounded-full blur-3xl pointer-events-none" />
     </section>
   );
 }

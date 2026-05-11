@@ -22,7 +22,7 @@ export default function CTA() {
           <span className="label-xs text-brand border border-[#F59E0B]/30 px-3 py-1 rounded-full">
             {tx.badge}
           </span>
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
             {tx.title} <span className="text-brand">{tx.titleSpan}</span>
           </h2>
           <p className="body-lg text-zinc-400">{tx.sub}</p>

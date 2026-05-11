@@ -15,14 +15,14 @@ export default function Journey() {
           <p className="section-subtitle">{tx.sub}</p>
         </Reveal>
 
-        <div className="relative max-w-3xl mx-auto">
-          <div className="absolute left-6 top-0 bottom-0 w-px bg-zinc-800 md:left-1/2" />
+        <div className="relative max-w-3xl mx-auto overflow-hidden">
+          <div className="absolute left-4 top-0 bottom-0 w-px bg-zinc-800 md:left-1/2" />
           <div className="space-y-12">
             {tx.items.map(({ year, role, company, url, type, desc }, i) => (
               <Reveal key={company} delay={i * 100}>
                 <div className={`relative flex gap-8 md:gap-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                  <div className="absolute left-6 w-3 h-3 bg-brand rounded-full border-2 border-[#18181B] -translate-x-1/2 mt-1.5 md:left-1/2 z-10" />
-                  <div className={`ml-12 md:ml-0 md:w-[45%] ${i % 2 === 0 ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
+                  <div className="absolute left-4 w-3 h-3 bg-brand rounded-full border-2 border-[#18181B] -translate-x-1/2 mt-1.5 md:left-1/2 z-10" />
+                  <div className={`ml-10 md:ml-0 md:w-[45%] ${i % 2 === 0 ? 'md:mr-auto md:pr-12' : 'md:ml-auto md:pl-12'}`}>
                     <div className="card-dark group p-6">
                       <div className="flexBetween mb-3">
                         <span className="label-xs px-3 py-1 bg-[#F59E0B]/10 text-brand rounded-full">{year}</span>

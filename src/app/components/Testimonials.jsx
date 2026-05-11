@@ -65,7 +65,7 @@ export default function Testimonials() {
           {testimonials.map(({ name, role, quote, initials, stars }, i) => (
             <Reveal key={i} delay={i * 100}>
               <div className="card-darker h-full p-8 flex flex-col justify-between gap-8 relative overflow-hidden">
-                <span className="absolute -top-4 -right-2 text-[10rem] font-bold text-zinc-800 leading-none select-none pointer-events-none"
+                <span className="absolute -top-2 -right-1 text-[6rem] font-bold text-zinc-800 leading-none select-none pointer-events-none overflow-hidden"
                   style={{ fontFamily: 'var(--font-heading)' }}>&quot;</span>
                 <div className="space-y-4 relative">
                   <Stars count={stars} />
