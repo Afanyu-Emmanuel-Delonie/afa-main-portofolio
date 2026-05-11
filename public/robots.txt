@@ -32,4 +32,4 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
-Sitemap: https://afanyuemmanuel.dev/sitemap.xml
+Sitemap: https://afanyu.netlify.app/sitemap.xml
