@@ -1,4 +1,6 @@
 import { Quote } from 'lucide-react';
+import { useLang } from '../../context/LanguageContext.jsx';
+import { t } from '../../data/translations.js';
 
 const testimonials = [
   {
@@ -22,12 +24,15 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const { lang } = useLang();
+  const tx = t[lang].testimonials;
+
   return (
     <section id="testimonials" className="bg-[#18181B] border-t border-zinc-800">
       <div className="max-container padding-container section-padding">
         <div className="text-center mb-16">
-          <h2 className="section-title mb-3">What Clients <span className="text-brand">Say</span></h2>
-          <p className="section-subtitle">Don't just take my word for it</p>
+          <h2 className="section-title mb-3">{tx.title} <span className="text-brand">{tx.titleSpan}</span></h2>
+          <p className="section-subtitle">{tx.sub}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">

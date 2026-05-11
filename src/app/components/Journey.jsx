@@ -1,54 +1,24 @@
 import { Briefcase, ExternalLink } from 'lucide-react';
 import Reveal from './Reveal.jsx';
-
-const journey = [
-  {
-    year: '2023',
-    role: 'Software Developer',
-    company: 'ZiloTech',
-    url: 'https://www.zilotech.org/',
-    type: 'Full-time',
-    desc: 'Kicked off my professional journey at ZiloTech, where I built my foundation in software development — working on real-world projects and sharpening my problem-solving skills.',
-  },
-  {
-    year: 'May 2024',
-    role: 'Software Engineer Intern',
-    company: 'FreshSense',
-    url: 'https://freshsens.ai/',
-    type: 'Internship',
-    desc: 'Specialized in mobile architecture and UI/UX principles during an intensive internship, bridging the gap between design theory and Flutter implementation.',
-  },
-  {
-    year: '2025',
-    role: 'Software Developer',
-    company: 'WAO Sport',
-    url: 'https://gh.linkedin.com/in/wao-sport-417710267',
-    type: 'Frontend Dev',
-    desc: 'Collaborated on building a nationwide streaming ecosystem and digital tools to launch and support a new sports category in the Ghanaian market.',
-  },
-  {
-    year: '2026',
-    role: 'Trainee Developer',
-    company: 'AUCA Innovation Center',
-    url: 'https://web.auca.ac.rw/news/innovation',
-    type: 'Trainee',
-    desc: 'Advancing as a multi-disciplinary developer, specializing in the intersection of UI/UX design, scalable Backend architecture, and DevOps to deliver end-to-end digital excellence.',
-  },
-];
+import { useLang } from '../../context/LanguageContext.jsx';
+import { t } from '../../data/translations.js';
 
 export default function Journey() {
+  const { lang } = useLang();
+  const tx = t[lang].journey;
+
   return (
     <section id="journey" className="bg-[#18181B] border-t border-zinc-800">
       <div className="max-container padding-container section-padding">
         <Reveal className="text-center mb-16">
-          <h2 className="section-title mb-3">My <span className="text-brand">Journey</span></h2>
-          <p className="section-subtitle">The path that shaped who I am as a developer</p>
+          <h2 className="section-title mb-3">{tx.title} <span className="text-brand">{tx.titleSpan}</span></h2>
+          <p className="section-subtitle">{tx.sub}</p>
         </Reveal>
 
         <div className="relative max-w-3xl mx-auto">
           <div className="absolute left-6 top-0 bottom-0 w-px bg-zinc-800 md:left-1/2" />
           <div className="space-y-12">
-            {journey.map(({ year, role, company, url, type, desc }, i) => (
+            {tx.items.map(({ year, role, company, url, type, desc }, i) => (
               <Reveal key={company} delay={i * 100}>
                 <div className={`relative flex gap-8 md:gap-0 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   <div className="absolute left-6 w-3 h-3 bg-brand rounded-full border-2 border-[#18181B] -translate-x-1/2 mt-1.5 md:left-1/2 z-10" />

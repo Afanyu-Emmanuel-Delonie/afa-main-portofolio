@@ -1,15 +1,20 @@
 import { ArrowRight, Lightbulb, Palette, Focus, Rocket } from 'lucide-react';
 import aboutme from '../../assets/afa-2.png';
 import Reveal from './Reveal.jsx';
+import { useLang } from '../../context/LanguageContext.jsx';
+import { t } from '../../data/translations.js';
 
-const traits = [
-  { icon: <Lightbulb className="w-4 h-4 text-brand" />, label: 'Innovative' },
-  { icon: <Palette className="w-4 h-4 text-brand" />, label: 'Creative' },
-  { icon: <Focus className="w-4 h-4 text-brand" />, label: 'Detail-Oriented' },
-  { icon: <Rocket className="w-4 h-4 text-brand" />, label: 'Solution-Driven' },
+const traitIcons = [
+  <Lightbulb className="w-4 h-4 text-brand" />,
+  <Palette className="w-4 h-4 text-brand" />,
+  <Focus className="w-4 h-4 text-brand" />,
+  <Rocket className="w-4 h-4 text-brand" />,
 ];
 
 export default function About() {
+  const { lang } = useLang();
+  const tx = t[lang].about;
+
   return (
     <section id="about" className="bg-[#18181B] border-t border-zinc-800">
       <div className="max-container padding-container section-padding">
@@ -22,7 +27,7 @@ export default function About() {
                 className="w-full h-full object-cover object-center grayscale group-hover:grayscale-0 transition-all duration-700 ease-out scale-x-[-1]" />
             </div>
             <div className="absolute -top-4 -left-4 px-4 py-2 bg-zinc-900 border border-zinc-700 rounded-xl shadow-xl">
-              <span className="body-sm font-semibold text-brand">Based In Rwanda</span>
+              <span className="body-sm font-semibold text-brand">{tx.basedIn}</span>
             </div>
           </Reveal>
 
@@ -30,32 +35,28 @@ export default function About() {
             <div className="space-y-3">
               <span className="section-badge">
                 <div className="w-1.5 h-1.5 rounded-full bg-brand" />
-                About Me
+                {tx.badge}
               </span>
               <h2 className="section-title" style={{ lineHeight: 1.1 }}>
-                Crafting Digital <span className="text-brand">Solutions</span>
+                {tx.title} <span className="text-brand">{tx.titleSpan}</span>
               </h2>
             </div>
-<p className="body-md text-zinc-400">
-  I am a Software Engineer dedicated to building high-performance digital products that drive market growth. With over two years of experience in web and mobile development, I bridge the gap between complex system architecture and business strategy to engineer scalable, commercially successful ventures.
-</p>
-<p className="body-md text-zinc-400">
-  My technical work is backed by analytical rigor from the GICA Online Research Program at Andrews University. I leverage this foundation to build data-rich platforms and fintech solutions that move the needle, transforming bold ideas into impactful, user-centric engines for growth.
-</p>
+            <p className="body-md text-zinc-400">{tx.p1}</p>
+            <p className="body-md text-zinc-400">{tx.p2}</p>
             <div className="grid grid-cols-2 gap-3 pt-2">
-              {traits.map(({ icon, label }) => (
+              {tx.traits.map((label, i) => (
                 <div key={label} className="flex items-center gap-2 px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl">
-                  {icon}
+                  {traitIcons[i]}
                   <span className="body-sm text-zinc-300">{label}</span>
                 </div>
               ))}
             </div>
-            <div className="flex flex-wrap gap-4 pt-2">
-              <a href="#contact" className="btn-sm-primary">
-                Work With Me <ArrowRight className="w-4 h-4" />
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <a href="#contact" className="btn-sm-primary justify-center">
+                {tx.workWithMe} <ArrowRight className="w-4 h-4" />
               </a>
-              <a href="#projects" className="btn-sm-outline">
-                View Projects
+              <a href="#projects" className="btn-sm-outline justify-center">
+                {tx.viewProjects}
               </a>
             </div>
           </Reveal>

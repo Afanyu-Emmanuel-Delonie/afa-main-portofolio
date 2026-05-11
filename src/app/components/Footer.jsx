@@ -1,27 +1,36 @@
+import { Link, useLocation } from 'react-router';
 import { Github, Instagram, Linkedin } from 'lucide-react';
+import { useLang } from '../../context/LanguageContext.jsx';
+import { t } from '../../data/translations.js';
 
 const links = [
-  { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Journey', href: '#journey' },
-  { name: 'Contact', href: '#contact' },
+  { name: { en: 'About',    fr: 'À Propos'     }, href: '#about' },
+  { name: { en: 'Services', fr: 'Services'      }, href: '#services' },
+  { name: { en: 'Projects', fr: 'Projets'       }, href: '#projects' },
+  { name: { en: 'Skills',   fr: 'Compétences'   }, href: '#skills' },
+  { name: { en: 'Journey',  fr: 'Parcours'      }, href: '#journey' },
+  { name: { en: 'Contact',  fr: 'Contact'       }, href: '#contact' },
 ];
 
 export default function Footer() {
+  const { pathname } = useLocation();
+  const { lang } = useLang();
+  const tx = t[lang].footer;
+  const isHome = pathname === '/';
+  const navHref = (hash) => isHome ? hash : `/${hash}`;
+
   return (
     <footer className="bg-[#18181B] border-t border-zinc-800">
       <div className="max-container padding-container py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <a href="#" className="heading-sm text-white hover:text-brand transition-colors duration-300">
+          <Link to="/" className="heading-sm text-white hover:text-brand transition-colors duration-300">
             &lt;Afanyu/&gt;
-          </a>
+          </Link>
 
           <div className="flex flex-wrap justify-center gap-6">
             {links.map((l) => (
-              <a key={l.name} href={l.href} className="body-sm text-zinc-400 hover:text-white transition-colors duration-300">
-                {l.name}
+              <a key={l.href} href={navHref(l.href)} className="body-sm text-zinc-400 hover:text-white transition-colors duration-300">
+                {l.name[lang]}
               </a>
             ))}
           </div>
@@ -42,7 +51,7 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-zinc-800 text-center">
           <p className="body-sm text-zinc-600">
-            © {new Date().getFullYear()} &lt;Afanyu/&gt;. All rights reserved.
+            © {new Date().getFullYear()} &lt;Afanyu/&gt;. {tx.rights}
           </p>
         </div>
       </div>

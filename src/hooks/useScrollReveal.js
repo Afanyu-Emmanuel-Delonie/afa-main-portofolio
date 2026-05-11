@@ -9,7 +9,7 @@ export default function useScrollReveal(options = {}) {
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
-      { threshold: 0.12, ...options }
+      { threshold: 0, rootMargin: '0px 0px -40px 0px', ...options }
     );
     observer.observe(el);
     return () => observer.disconnect();

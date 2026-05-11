@@ -1,8 +1,13 @@
 import { ArrowRight } from 'lucide-react';
 import heroImage from '../../assets/afa-1.png';
 import Reveal from './Reveal.jsx';
+import { useLang } from '../../context/LanguageContext.jsx';
+import { t } from '../../data/translations.js';
 
 export default function Hero() {
+  const { lang } = useLang();
+  const tx = t[lang].hero;
+
   return (
     <section className="bg-[#18181B] text-white relative overflow-hidden">
       <div className="max-container padding-container py-24 lg:py-28 xl:py-32">
@@ -11,22 +16,20 @@ export default function Hero() {
             <div className="space-y-4">
               <div className="section-badge">
                 <div className="w-2 h-2 bg-brand rounded-full animate-pulse" />
-                Available for Freelance
+                {tx.badge}
               </div>
               <h1 className="heading-xl text-white">
-                Hi, I'm <span className="text-brand">Afanyu</span><br />Emmanuel
+                {tx.heading1} <span className="text-brand">Afanyu</span><br />{tx.heading2}
               </h1>
-              <p className="body-lg text-zinc-400 max-w-xl">
-                Software engineering student specializing in web and mobile applications. Transforming ideas into elegant, scalable solutions.
-              </p>
+              <p className="body-lg text-zinc-400 max-w-xl">{tx.sub}</p>
             </div>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <a href="#contact" className="group btn-primary">
-               Hire Me 
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <a href="#contact" className="group btn-primary justify-center">
+                {tx.hire}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href="/cv.pdf" download className="btn-outline">
-                Download CV
+              <a href="/cv.pdf" download className="btn-outline justify-center">
+                {tx.cv}
               </a>
             </div>
           </Reveal>

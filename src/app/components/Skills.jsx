@@ -1,7 +1,8 @@
-
+import { useLang } from '../../context/LanguageContext.jsx';
+import { t } from '../../data/translations.js';
 
 const row2 = [
-  'Django', 'Django REST', 'Firebase', 'Spring Boot', 'Git', 'UI/UX', 'Python', 'PostgreSQL', 'Tailwind CSS',  'Flutter', 'React JS',
+  'Django', 'Django REST', 'Firebase', 'Spring Boot', 'Git', 'UI/UX', 'Python', 'PostgreSQL', 'Tailwind CSS', 'Flutter', 'React JS',
 ];
 
 function SkillBadge({ name }) {
@@ -29,11 +30,14 @@ function MarqueeRow({ items, reverse = false }) {
 }
 
 export default function Skills() {
+  const { lang } = useLang();
+  const tx = t[lang].skills;
+
   return (
     <section id="skills" className="bg-zinc-950 border-t border-zinc-800 py-16 overflow-hidden">
       <div className="text-center mb-10">
-        <h2 className="section-title mb-3">My <span className="text-brand">Skills</span></h2>
-        <p className="section-subtitle">Technologies I work with every day</p>
+        <h2 className="section-title mb-3">{tx.title} <span className="text-brand">{tx.titleSpan}</span></h2>
+        <p className="section-subtitle">{tx.sub}</p>
       </div>
       <div className="space-y-4">
         <MarqueeRow items={row2} reverse />

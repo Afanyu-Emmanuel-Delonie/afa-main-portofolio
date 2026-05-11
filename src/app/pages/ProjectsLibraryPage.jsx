@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight, Figma } from 'lucide-react';
 import { projects, categories } from '../../data/projects.js';
 import Nav from '../components/Nav.jsx';
 import Footer from '../components/Footer.jsx';
@@ -48,13 +48,17 @@ export default function ProjectsLibraryPage() {
       <div className="max-container padding-container pb-24">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((project) => {
-            const { id, title, desc, stack, live, github, color, category } = project;
+            const { id, title, desc, stack, live, github, color, category, banner } = project;
             return (
               <div key={id} className="card-darker group overflow-hidden flex flex-col h-full">
-                <div className={`h-40 bg-gradient-to-br ${color} flexCenter border-b border-zinc-800 relative`}>
-                  <span className="text-3xl font-bold text-white/10 group-hover:text-white/20 transition-all duration-300 px-4 text-center" style={{ fontFamily: 'var(--font-heading)' }}>
-                    {title}
-                  </span>
+                <div className={`aspect-video border-b border-zinc-800 relative overflow-hidden ${!banner ? `bg-gradient-to-br ${color} flexCenter` : ''}`}>
+                  {banner ? (
+                    <img src={banner} alt={`${title} preview`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  ) : (
+                    <span className="text-3xl font-bold text-white/10 group-hover:text-white/20 transition-all duration-300 px-4 text-center" style={{ fontFamily: 'var(--font-heading)' }}>
+                      {title}
+                    </span>
+                  )}
                   <span className="absolute top-3 right-3 label-xs text-brand border border-[#F59E0B]/30 px-2 py-1 rounded-full bg-[#18181B]/60">
                     {category}
                   </span>
@@ -69,12 +73,24 @@ export default function ProjectsLibraryPage() {
                   </div>
                   <div className="flexBetween pt-2">
                     <div className="flex gap-3">
-                      <a href={live} className="flexStart gap-1.5 body-sm text-zinc-400 hover:text-brand transition-colors duration-300">
-                        <ExternalLink className="w-4 h-4" /> Live
-                      </a>
-                      <a href={github} className="flexStart gap-1.5 body-sm text-zinc-400 hover:text-brand transition-colors duration-300">
-                        <Github className="w-4 h-4" /> GitHub
-                      </a>
+                      {live === null && github === null ? (
+                        <span className="flexStart gap-1.5 body-sm text-brand">
+                          <Figma className="w-4 h-4" /> Open Design
+                        </span>
+                      ) : (
+                        <>
+                          {live && (
+                            <a href={live} target="_blank" rel="noopener noreferrer" className="flexStart gap-1.5 body-sm text-zinc-400 hover:text-brand transition-colors duration-300">
+                              <ExternalLink className="w-4 h-4" /> Live
+                            </a>
+                          )}
+                          {github && (
+                            <a href={github} target="_blank" rel="noopener noreferrer" className="flexStart gap-1.5 body-sm text-zinc-400 hover:text-brand transition-colors duration-300">
+                              <Github className="w-4 h-4" /> GitHub
+                            </a>
+                          )}
+                        </>
+                      )}
                     </div>
                     <Link to={`/projects/${id}`} className="flexStart gap-1 body-sm text-brand hover:underline">
                       Case Study <ArrowRight className="w-3.5 h-3.5" />

@@ -1,41 +1,25 @@
-import { Globe, Smartphone, BarChart2, Layout } from 'lucide-react';
+import { Globe, Smartphone, Layout } from 'lucide-react';
 import Reveal from './Reveal.jsx';
+import { useLang } from '../../context/LanguageContext.jsx';
+import { t } from '../../data/translations.js';
 
-const services = [
-  {
-    title: 'Responsive Web Design',
-    description: 'Modern, performant web interfaces with a focus on UI/UX and clean aesthetics.',
-    icon: Globe,
-    features: ['Figma to React', 'Bento Grid Layouts', 'Tailwind CSS', 'Mobile First'],
-  },
-  {
-    title: 'Cross-Platform Mobile',
-    description: 'Native-quality iOS and Android apps delivered via a single Flutter codebase.',
-    icon: Smartphone,
-    features: ['Flutter & Dart', 'iOS & Android', 'Offline Support', 'Push Notifications'],
-  },
-  {
-    title: 'Web Applications',
-    description: 'Scalable SaaS platforms and data-rich systems with complex logic.',
-    icon: Layout, 
-    features: ['API Integration', 'Dashboard Systems', 'Secure Auth', 'State Management'],
-  },
-];
+const icons = [Globe, Smartphone, Layout];
 
 export default function Services() {
+  const { lang } = useLang();
+  const tx = t[lang].services;
+
   return (
     <section id="services" className="bg-zinc-950 border-t border-zinc-800">
       <div className="max-container padding-container section-padding">
         <Reveal className="text-center mb-16">
-          <h2 className="section-title mb-4">Services</h2>
-          <p className="body-lg text-zinc-400 max-w-2xl mx-auto">
-            Full-stack development solutions tailored to your business needs
-          </p>
+          <h2 className="section-title mb-4">{tx.badge}</h2>
+          <p className="body-lg text-zinc-400 max-w-2xl mx-auto">{tx.title}</p>
         </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, i) => {
-            const Icon = service.icon;
+          {tx.items.map((service, i) => {
+            const Icon = icons[i];
             return (
               <Reveal key={service.title} delay={i * 120}>
                 <div className="card-darker group relative p-8 h-full">
@@ -65,8 +49,8 @@ export default function Services() {
         </div>
 
         <Reveal delay={100} className="text-center mt-16">
-          <p className="body-md text-zinc-400 mb-6">Don't see what you're looking for?</p>
-          <a href="#contact" className="btn-primary">Let's Discuss Your Project</a>
+          <p className="body-md text-zinc-400 mb-6">{tx.dontSee}</p>
+          <a href="#contact" className="btn-primary">{tx.discuss}</a>
         </Reveal>
       </div>
     </section>

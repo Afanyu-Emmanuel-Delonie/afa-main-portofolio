@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router';
+import { LanguageProvider } from '../context/LanguageContext.jsx';
 import Loader from './components/Loader.jsx';
 import Nav from './components/Nav.jsx';
 import Hero from './components/Hero.jsx';
@@ -17,25 +18,30 @@ import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import ProjectDetailPage from './pages/ProjectDetailPage.jsx';
-import ProjectsLibraryPage from './pages/ProjectsLibraryPage.jsx';
 
 function HomePage() {
   return (
     <>
-      <Nav />
-      <Hero />
-      <Stats />
-      <About />
-      <Services />
-      <TechStack />
-      <Projects />
-      <Journey />
-      <HowIWork />
-      <Testimonials />
-      <Contact />
-      <FAQ />
-      <CTA />
-      <Footer />
+      <header>
+        <Nav />
+        <Hero />
+      </header>
+      <main>
+        <Stats />
+        <About />
+        <Services />
+        <TechStack />
+        <Projects />
+        <Journey />
+        <HowIWork />
+        <Testimonials />
+        <Contact />
+        <FAQ />
+        <CTA />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }
@@ -46,13 +52,14 @@ export default function App() {
   if (loading) return <Loader onDone={() => setLoading(false)} />;
 
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/projects" element={<ProjectsLibraryPage />} />
-        <Route path="/projects/:id" element={<ProjectDetailPage />} />
-      </Routes>
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/projects/:id" element={<ProjectDetailPage />} />
+        </Routes>
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }

@@ -1,8 +1,13 @@
 import { ArrowRight } from 'lucide-react';
 import networkingImg from '../../assets/afa-3.png';
 import Reveal from './Reveal.jsx';
+import { useLang } from '../../context/LanguageContext.jsx';
+import { t } from '../../data/translations.js';
 
 export default function CTA() {
+  const { lang } = useLang();
+  const tx = t[lang].cta;
+
   return (
     <section className="relative bg-[#18181B] border-t border-zinc-800 overflow-hidden">
       <div className="absolute inset-y-0 right-0 w-full md:w-2/3 lg:w-2/3">
@@ -15,20 +20,18 @@ export default function CTA() {
       <div className="relative max-container padding-container py-10 lg:py-14">
         <Reveal className="max-w-2xl space-y-6">
           <span className="label-xs text-brand border border-[#F59E0B]/30 px-3 py-1 rounded-full">
-            Open to opportunities
+            {tx.badge}
           </span>
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
-            Let's build something <span className="text-brand">great together.</span>
+            {tx.title} <span className="text-brand">{tx.titleSpan}</span>
           </h2>
-          <p className="body-lg text-zinc-400">
-            I'm open for collaborations, freelance projects, and full-time roles. Whether you have a product idea, need a technical partner, or just want to connect, my inbox is always open.
-          </p>
-          <div className="flex flex-wrap gap-4 pt-2">
-            <a href="#contact" className="btn-primary">
-              Start a Conversation <ArrowRight className="w-4 h-4" />
+          <p className="body-lg text-zinc-400">{tx.sub}</p>
+          <div className="flex flex-col sm:flex-row gap-4 pt-2">
+            <a href="#contact" className="btn-primary justify-center">
+              {tx.start} <ArrowRight className="w-4 h-4" />
             </a>
-            <a href="#projects" className="btn-outline">
-              View My Work
+            <a href="#projects" className="btn-outline justify-center">
+              {tx.view}
             </a>
           </div>
         </Reveal>
