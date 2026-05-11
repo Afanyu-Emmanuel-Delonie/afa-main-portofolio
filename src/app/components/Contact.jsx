@@ -1,141 +1,131 @@
 import { useState } from 'react';
-import { Send, Mail, Phone, MapPin, CalendarDays, CheckCircle, XCircle, Loader2 } from 'lucide-react';
+import { Mail, MapPin, CalendarDays, Github, Linkedin, MessageCircle, ArrowRight, Copy, Check } from 'lucide-react';
 import Reveal from './Reveal.jsx';
 import { useLang } from '../../context/LanguageContext.jsx';
 import { t } from '../../data/translations.js';
 
-const inputClass = 'w-full px-4 py-3 bg-zinc-900 border border-zinc-800 focus:border-[#F59E0B]/50 rounded-xl text-white placeholder-zinc-600 outline-none transition-colors duration-300';
-const EMPTY = { name: '', email: '', phone: '', interest: '', message: '' };
+function CopyButton({ text }) {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+  return (
+    <button onClick={handleCopy} className="ml-auto p-1.5 rounded-md text-zinc-500 hover:text-brand hover:bg-zinc-800 transition-all duration-200" title="Copy">
+      {copied ? <Check className="w-3.5 h-3.5 text-green-400" /> : <Copy className="w-3.5 h-3.5" />}
+    </button>
+  );
+}
 
 export default function Contact() {
-  const [form, setForm] = useState(EMPTY);
-  const [status, setStatus] = useState(null);
   const { lang } = useLang();
   const tx = t[lang].contact;
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('loading');
-    try {
-      const body = new URLSearchParams({
-        name: form.name, email: form.email, phone: form.phone,
-        interest: form.interest, message: form.message,
-      });
-      await fetch('https://script.google.com/macros/s/AKfycbyl2nwFwgvfxs6JxzOAawXI4jlvLPybv4gmSNdVOODmN3fPAlfvIx4eY2sKuUJ3ECis/exec', {
-        method: 'POST', mode: 'no-cors',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body.toString(),
-      });
-      setStatus('success');
-      setForm(EMPTY);
-    } catch {
-      setStatus('error');
-    } finally {
-      setTimeout(() => setStatus(null), 5000);
-    }
-  };
+  const secondaryChannels = [
+    { icon: Mail,     label: 'Email',     value: 'afanyuemma2002@gmail.com', href: 'mailto:afanyuemma2002@gmail.com', copyable: true },
+    { icon: MessageCircle, label: 'WhatsApp', value: '+250 798 971 739', href: 'https://wa.me/250798971739', copyable: true },
+    { icon: Linkedin, label: 'LinkedIn',  value: 'Afanyu Emmanuel', href: 'https://www.linkedin.com/in/afanyu-emmanuel/', copyable: false },
+    { icon: Github,   label: 'GitHub',    value: 'Afanyu-Emmanuel-Delonie', href: 'https://github.com/Afanyu-Emmanuel-Delonie', copyable: false },
+    { icon: MapPin,   label: tx.location, value: 'Kigali, Rwanda', href: null, copyable: false },
+  ];
 
   return (
-    <section id="contact" className="bg-zinc-950 border-t border-zinc-800">
+    <section id="contact" className="bg-[#18181B] border-t border-zinc-800">
       <div className="max-container padding-container section-padding">
+
         <Reveal className="text-center mb-16">
           <h2 className="section-title mb-3">{tx.title} <span className="text-brand">{tx.titleSpan}</span></h2>
           <p className="section-subtitle">{tx.sub}</p>
         </Reveal>
 
-        <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
-          <Reveal className="lg:col-span-2 space-y-8">
-            <p className="body-md text-zinc-400">{tx.intro}</p>
+        <div className="grid lg:grid-cols-2 gap-6">
+
+          {/* Left — headline + primary CTAs */}
+          <Reveal className="card-darker p-8 lg:p-10 flex flex-col justify-between gap-10">
             <div className="space-y-4">
-              {[
-                { icon: Mail, label: tx.email, value: 'aemmanueldelonie@gmail.com', href: 'mailto:aemmanueldelonie@gmail.com' },
-                { icon: Phone, label: tx.phone, value: '+250 798 971 739', href: 'tel:+250798971739' },
-                { icon: MapPin, label: tx.location, value: 'Rwanda', href: null },
-              ].map(({ icon: Icon, label, value, href }) => (
-                <div key={label} className="flexStart gap-4">
-                  <div className="w-10 h-10 shrink-0 rounded-xl bg-[#F59E0B]/10 border border-[#F59E0B]/20 flexCenter">
-                    <Icon className="w-4 h-4 text-brand" />
-                  </div>
-                  <div>
-                    <p className="text-xs text-zinc-500 mb-0.5">{label}</p>
-                    {href
-                      ? <a href={href} className="body-sm text-zinc-300 hover:text-brand transition-colors">{value}</a>
-                      : <span className="body-sm text-zinc-300">{value}</span>
-                    }
-                  </div>
-                </div>
-              ))}
+              <span className="section-badge">
+                <span className="w-1.5 h-1.5 rounded-full bg-brand animate-pulse" />
+                {tx.badge}
+              </span>
+              <h3 className="text-3xl lg:text-4xl font-bold text-white leading-tight" style={{ fontFamily: 'var(--font-heading)' }}>
+                {tx.leftHeading} <span className="text-brand">{tx.leftHeadingSpan}</span>
+              </h3>
+              <p className="body-md text-zinc-400 max-w-md">{tx.leftSub}</p>
             </div>
-            <div className="card-darker p-6 space-y-3">
-              <div className="flexStart gap-3">
-                <div className="w-10 h-10 shrink-0 rounded-xl bg-[#F59E0B]/10 border border-[#F59E0B]/20 flexCenter">
-                  <CalendarDays className="w-4 h-4 text-brand" />
-                </div>
-                <div>
-                  <p className="body-sm font-semibold text-white">{tx.callTitle}</p>
-                  <p className="text-xs text-zinc-500">{tx.callSub}</p>
-                </div>
-              </div>
-              <a href="https://calendly.com/aemmanueldelonie/30min" target="_blank" rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 border border-[#F59E0B]/40 text-brand hover:bg-[#F59E0B]/10 rounded-xl body-sm font-semibold transition-all duration-300">
-                <CalendarDays className="w-4 h-4" /> {tx.bookCalendly}
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a href="mailto:afanyuemma2002@gmail.com"
+                className="btn-primary justify-center">
+                <Mail className="w-4 h-4" /> {tx.emailCta}
+              </a>
+              <a href="https://wa.me/250798971739" target="_blank" rel="noopener noreferrer"
+                className="btn-outline justify-center">
+                <MessageCircle className="w-4 h-4" /> {tx.whatsappCta}
               </a>
             </div>
           </Reveal>
 
-          <Reveal delay={150} className="lg:col-span-3">
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block body-sm text-zinc-400 mb-1.5">{tx.fullName}</label>
-                  <input name="name" value={form.name} onChange={handleChange} placeholder={tx.namePlaceholder} required className={inputClass} />
-                </div>
-                <div>
-                  <label className="block body-sm text-zinc-400 mb-1.5">{tx.emailLabel}</label>
-                  <input name="email" type="email" value={form.email} onChange={handleChange} placeholder="your@email.com" required className={inputClass} />
-                </div>
-              </div>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block body-sm text-zinc-400 mb-1.5">{tx.phoneLabel}</label>
-                  <input name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder={tx.phonePlaceholder} className={inputClass} />
-                </div>
-                <div>
-                  <label className="block body-sm text-zinc-400 mb-1.5">{tx.interest}</label>
-                  <select name="interest" value={form.interest} onChange={handleChange} required className={`${inputClass} text-zinc-400`}>
-                    <option value="" disabled>{tx.interestPlaceholder}</option>
-                    {tx.interests.map((item) => <option key={item} value={item}>{item}</option>)}
-                  </select>
-                </div>
-              </div>
-              <div>
-                <label className="block body-sm text-zinc-400 mb-1.5">{tx.message}</label>
-                <textarea name="message" value={form.message} onChange={handleChange} placeholder={tx.messagePlaceholder} required rows={6} className={`${inputClass} resize-none`} />
-              </div>
-              <button type="submit" disabled={status === 'loading'}
-                className="w-full btn-primary justify-center disabled:opacity-70 disabled:cursor-not-allowed hover:scale-[1.01]">
-                {status === 'loading'
-                  ? <><Loader2 className="w-4 h-4 animate-spin" /> {tx.sending}</>
-                  : <><Send className="w-4 h-4" /> {tx.send}</>
-                }
-              </button>
+          {/* Right — Calendly highlight + secondary channels */}
+          <div className="flex flex-col gap-6">
 
-              {status === 'success' && (
-                <div className="flexStart gap-3 px-5 py-4 bg-green-500/10 border border-green-500/30 rounded-xl">
-                  <CheckCircle className="w-5 h-5 text-green-400 shrink-0" />
-                  <p className="body-sm text-green-400">{tx.successMsg}</p>
+            {/* Calendly card */}
+            <Reveal delay={100}>
+              <a href="https://calendly.com/afanyuemma2002/discovery-with-afanyu" target="_blank" rel="noopener noreferrer"
+                className="card-darker group p-8 flex items-center justify-between gap-6 hover:border-brand transition-all duration-300 block">
+                <div className="flex items-center gap-5">
+                  <div className="w-12 h-12 rounded-xl bg-[#F59E0B]/10 border border-[#F59E0B]/20 flexCenter shrink-0">
+                    <CalendarDays className="w-5 h-5 text-brand" />
+                  </div>
+                  <div>
+                    <p className="body-sm font-semibold text-white">{tx.calendlyCta}</p>
+                    <p className="text-xs text-zinc-500 mt-0.5">{tx.calendlyValue}</p>
+                  </div>
                 </div>
-              )}
-              {status === 'error' && (
-                <div className="flexStart gap-3 px-5 py-4 bg-red-500/10 border border-red-500/30 rounded-xl">
-                  <XCircle className="w-5 h-5 text-red-400 shrink-0" />
-                  <p className="body-sm text-red-400">{tx.errorMsg}</p>
-                </div>
-              )}
-            </form>
-          </Reveal>
+                <ArrowRight className="w-5 h-5 text-brand shrink-0 group-hover:translate-x-1 transition-transform duration-300" />
+              </a>
+            </Reveal>
+
+            {/* Email + WhatsApp — copyable rows */}
+            <div className="grid grid-cols-1 gap-3">
+              {secondaryChannels.filter(c => c.copyable).map(({ icon: Icon, label, value, href, copyable }, i) => (
+                <Reveal key={label} delay={150 + i * 70}>
+                  <div className="card-darker px-5 py-3.5 flex items-center gap-4">
+                    <div className="w-9 h-9 rounded-lg bg-zinc-800 flexCenter shrink-0">
+                      <Icon className="w-4 h-4 text-zinc-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs text-zinc-500">{label}</p>
+                      <a href={href} target={href.startsWith('mailto') ? '_self' : '_blank'} rel="noopener noreferrer" className="body-sm text-zinc-300 hover:text-brand transition-colors truncate block">{value}</a>
+                    </div>
+                    <CopyButton text={value} />
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            {/* LinkedIn, GitHub, Location — single row */}
+            <Reveal delay={300}>
+              <div className="card-darker px-5 py-4 flex items-center justify-between gap-2">
+                {secondaryChannels.filter(c => !c.copyable).map(({ icon: Icon, label, value, href }) => (
+                  <div key={label} className="flex items-center gap-2 min-w-0">
+                    <div className="w-8 h-8 rounded-lg bg-zinc-800 flexCenter shrink-0">
+                      <Icon className="w-3.5 h-3.5 text-zinc-400" />
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-xs text-zinc-500">{label}</p>
+                      {href
+                        ? <a href={href} target="_blank" rel="noopener noreferrer" className="text-xs text-zinc-300 hover:text-brand transition-colors truncate block">{value}</a>
+                        : <span className="text-xs text-zinc-300 truncate block">{value}</span>
+                      }
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+          </div>
         </div>
       </div>
     </section>

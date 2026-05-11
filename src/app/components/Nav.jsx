@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router';
 import { Menu, X } from 'lucide-react';
 import { useLang } from '../../context/LanguageContext.jsx';
@@ -7,19 +7,50 @@ import { t } from '../../data/translations.js';
 const links = [
   { name: { en: 'About',    fr: 'À Propos'  }, href: '#about' },
   { name: { en: 'Services', fr: 'Services'  }, href: '#services' },
-  { name: { en: 'Projects', fr: 'Projets'   }, href: '#projects' },
   { name: { en: 'Skills',   fr: 'Compétences' }, href: '#skills' },
+  { name: { en: 'Projects', fr: 'Projets'   }, href: '#projects' },
   { name: { en: 'Journey',  fr: 'Parcours'  }, href: '#journey' },
   { name: { en: 'Contact',  fr: 'Contact'   }, href: '#contact' },
 ];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
   const { pathname } = useLocation();
   const { lang, toggle } = useLang();
   const isHome = pathname === '/';
 
+  useEffect(() => {
+    const sectionIds = links.map((l) => l.href.replace('#', ''));
+    const observers = [];
+
+    // Clear active when hero is in view
+    const hero = document.querySelector('header');
+    if (hero) {
+      const heroObserver = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(''); },
+        { rootMargin: '0px 0px -80% 0px' }
+      );
+      heroObserver.observe(hero);
+      observers.push(heroObserver);
+    }
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
+        { rootMargin: '-40% 0px -55% 0px' }
+      );
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, [pathname]);
+
   const navHref = (hash) => isHome ? hash : `/${hash}`;
+  const isActive = (href) => activeSection === href.replace('#', '');
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#18181B]/80 backdrop-blur-md border-b border-zinc-800/50">
@@ -31,9 +62,14 @@ export default function Nav() {
 
           <div className="flex items-center justify-center gap-4 xl:gap-8">
             {links.map((l) => (
-              <a key={l.href} href={navHref(l.href)} className="body-sm text-zinc-400 hover:text-white transition-colors duration-300 relative group whitespace-nowrap">
+              <a key={l.href} href={navHref(l.href)}
+                className={`body-sm transition-colors duration-300 relative group whitespace-nowrap ${
+                  isActive(l.href) ? 'text-white' : 'text-zinc-400 hover:text-white'
+                }`}>
                 {l.name[lang]}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand group-hover:w-full transition-all duration-300" />
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-brand transition-all duration-300 ${
+                  isActive(l.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                }`} />
               </a>
             ))}
           </div>
@@ -66,7 +102,10 @@ export default function Nav() {
         {open && (
           <div className="lg:hidden py-6 border-t border-zinc-800/50 flex flex-col gap-4">
             {links.map((l) => (
-              <a key={l.href} href={navHref(l.href)} onClick={() => setOpen(false)} className="body-sm text-zinc-400 hover:text-white transition-colors py-2">
+              <a key={l.href} href={navHref(l.href)} onClick={() => setOpen(false)}
+                className={`body-sm transition-colors py-2 ${
+                  isActive(l.href) ? 'text-brand font-semibold' : 'text-zinc-400 hover:text-white'
+                }`}>
                 {l.name[lang]}
               </a>
             ))}

@@ -19,7 +19,7 @@ export default function Hero() {
                 {tx.badge}
               </div>
               <h1 className="heading-xl text-white">
-                {tx.heading1} <span className="text-brand">Afanyu</span><br />{tx.heading2}
+                {tx.heading1} <span className="text-brand">{tx.heading2}</span>
               </h1>
               <p className="body-lg text-zinc-400 max-w-xl">{tx.sub}</p>
             </div>
