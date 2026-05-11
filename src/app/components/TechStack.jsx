@@ -54,12 +54,12 @@ export default function TechStack() {
           <p className="section-subtitle">Technologies I use across web, mobile and backend</p>
         </Reveal>
 
-        <div className="space-y-12">
+        <div className="grid lg:grid-cols-3 gap-10">
           {categories.map(({ label, items }, ci) => (
             <Reveal key={label} delay={ci * 100}>
               <div>
-                <p className="label-xs text-zinc-500 mb-5 padding-container">{label}</p>
-                <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+                <p className="label-xs text-zinc-500 mb-5">{label}</p>
+                <div className="grid grid-cols-3 gap-4">
                   {items.map(({ name, logo, invert }) => (
                     <div key={name} className="card-dark group flexCenter flex-col gap-3 px-3 py-5">
                       <img
