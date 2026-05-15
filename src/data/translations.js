@@ -11,8 +11,8 @@ export const t = {
     },
     about: {
       badge: 'About Me',
-      title: 'I build interfaces that',
-      titleSpan: 'feel as good as they look.',
+      title: 'Crafting Digital',
+      titleSpan: 'Solutions',
       p1: "I'm a frontend-focused engineer with a growing full-stack skill set. My strength is in building clean, responsive, and intuitive interfaces with React and Tailwind — the kind where users don't need a manual. I care deeply about UX, performance, and the details that make a product feel polished.",
       p2: 'On the backend, I work with Spring Boot and PostgreSQL — enough to build and ship complete products end-to-end. My work is grounded in analytical thinking shaped by the GICA Online Research Program at Andrews University. I dig into the problem before touching the keyboard.',
       workWithMe: 'Work With Me',
@@ -150,8 +150,8 @@ export const t = {
     },
     about: {
       badge: 'À Propos',
-      title: 'Je construis des interfaces qui',
-      titleSpan: 'se ressentent autant qu\'elles se voient.',
+      title: 'Créer des Solutions',
+      titleSpan: 'Numériques',
       p1: "Je suis un ingénieur orienté frontend avec un ensemble de compétences full-stack en croissance. Ma force est dans la création d'interfaces propres, réactives et intuitives avec React et Tailwind — le genre où les utilisateurs n'ont pas besoin de manuel. Je me soucie profondément de l'UX, des performances et des détails qui rendent un produit soigné.",
       p2: "Côté backend, je travaille avec Spring Boot et PostgreSQL — suffisamment pour construire et livrer des produits complets de bout en bout. Mon travail est ancré dans la pensée analytique façonnée par le programme GICA à l'Université Andrews.",
       workWithMe: 'Travaillez avec moi',
