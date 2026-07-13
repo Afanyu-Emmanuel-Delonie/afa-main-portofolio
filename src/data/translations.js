@@ -100,7 +100,7 @@ export const t = {
       badge: 'By the Numbers',
       items: [
         { value: '10+', label: 'Projects Completed' },
-        { value: '2+',  label: 'Years Experience' },
+        { value: '3+',  label: 'Years Experience' },
         { value: '98%', label: 'Client Satisfaction' },
         { value: '< 24h', label: 'Response Time' },
       ],
@@ -239,7 +239,7 @@ export const t = {
       badge: 'En Chiffres',
       items: [
         { value: '10+', label: 'Projets Realises' },
-        { value: '2+',  label: "Annees d'Experience" },
+        { value: '3+',  label: "Annees d'Experience" },
         { value: '98%', label: 'Satisfaction Client' },
         { value: '< 24h', label: 'Temps de Reponse' },
       ],

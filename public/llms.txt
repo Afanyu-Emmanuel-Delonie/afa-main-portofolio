@@ -1,0 +1,26 @@
+# Afanyu Emmanuel — Software Developer
+
+> Product-minded software developer based in Kigali, Rwanda, who turns complex problems into practical, scalable solutions that deliver real-world value.
+
+## About
+
+Afanyu Emmanuel is a software developer specializing in web and mobile applications. From concept to deployment, he focuses on building scalable, reliable, and user-centered products. His work combines technical development with data-driven problem solving, shaped by research in Financial Behavior Intelligence Models for Financial Inclusion — a fintech initiative applying AI and data analytics to improve financial access for underserved populations.
+
+## Projects
+
+- [Zyra — Luxury Leather Goods Platform](https://afanyu.netlify.app/projects/zyra): Full-stack platform digitising production lifecycle of a luxury leather goods brand with digital twin traceability, OTP-based activation, and a public store.
+- [DiaCare — Diabetes Care System](https://afanyu.netlify.app/projects/diacare): Multi-role healthcare platform with real-time WebSocket chat, SOS emergency escalation, glucose tracking, and role-based dashboards.
+- [FAC Ltd — Corporate Website](https://afanyu.netlify.app/projects/fac-ltd): Trilingual (English, French, Kinyarwanda) corporate site with browser language detection, a blog system, and SEO-optimised pages.
+
+## Skills & Stack
+
+React, Tailwind CSS, Flutter, Spring Boot, PostgreSQL, Docker, Firebase, Figma, Python, Java
+
+## Contact
+
+- Email: afanyuemma2002@gmail.com
+- LinkedIn: https://www.linkedin.com/in/afanyu-emmanuel/
+- GitHub: https://github.com/Afanyu-Emmanuel-Delonie
+- WhatsApp: https://wa.me/250798971739
+- Book a call: https://calendly.com/aemmanueldelonie/virtual-coffee
+- Location: Kigali, Rwanda
