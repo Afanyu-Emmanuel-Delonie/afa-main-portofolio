@@ -4,6 +4,7 @@ import { projects } from '../../data/projects.js';
 import networkingImg from '../../assets/afa-3.png';
 import Footer from '../components/Footer.jsx';
 import Nav from '../components/Nav.jsx';
+import useSEO from '../../hooks/useSEO.js';
 
 const galleryLabel = (category) => {
   if (category === 'Mobile App') return 'App Screens';
@@ -24,6 +25,16 @@ export default function ProjectDetailPage() {
   const navigate = useNavigate();
   const project = projects.find((p) => p.id === id);
 
+  useSEO({
+    title: project ? `${project.title} | Afanyu Emmanuel` : 'Project | Afanyu Emmanuel',
+    description: project
+      ? `${project.caseStudy.overview} Built with ${project.stack.slice(0, 4).join(', ')}.`
+      : 'Project case study by Afanyu Emmanuel, software developer in Kigali, Rwanda.',
+    url: `/projects/${id}`,
+    image: project?.banner || undefined,
+    type: 'article',
+    project: project || null,
+  });
   if (!project) {
     return (
       <div className="min-h-screen bg-[#18181B] flexCenter flex-col gap-4">

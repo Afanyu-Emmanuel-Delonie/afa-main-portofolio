@@ -1,0 +1,12 @@
+/* TEAM */
+Developer & Designer: Afanyu Emmanuel
+Site: https://afanyu.netlify.app
+GitHub: https://github.com/Afanyu-Emmanuel-Delonie
+LinkedIn: https://www.linkedin.com/in/afanyu-emmanuel/
+Email: afanyuemma2002@gmail.com
+Location: Kigali, Rwanda
+
+/* SITE */
+Last update: 2025/07/15
+Language: English
+Technology: React 18, Vite 6, Tailwind CSS v4, Spring Boot, Flutter

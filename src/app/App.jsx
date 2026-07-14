@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router';
+import useSEO from '../hooks/useSEO.js';
 import { LanguageProvider } from '../context/LanguageContext.jsx';
 import Loader from './components/Loader.jsx';
 import Nav from './components/Nav.jsx';
@@ -20,6 +21,11 @@ import ScrollToTop from './components/ScrollToTop.jsx';
 import ProjectDetailPage from './pages/ProjectDetailPage.jsx';
 
 function HomePage() {
+  useSEO({
+    title: 'Afanyu Emmanuel | Software Developer — Web & Mobile Apps',
+    description: 'Afanyu Emmanuel is a software developer in Kigali, Rwanda, building scalable web apps, mobile apps, and data-driven solutions. Available for freelance and full-time roles.',
+    url: '/',
+  });
   return (
     <>
       <header>

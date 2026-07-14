@@ -1,27 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
   <url>
     <loc>https://afanyu.netlify.app/</loc>
-    <lastmod>2025-05-11</lastmod>
+    <lastmod>2025-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://afanyu.netlify.app/og-image.png</image:loc>
+      <image:title>Afanyu Emmanuel — Software Developer Portfolio</image:title>
+      <image:caption>Portfolio and freelance service site of Afanyu Emmanuel, software developer in Kigali, Rwanda.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://afanyu.netlify.app/projects/zyra</loc>
-    <lastmod>2025-05-11</lastmod>
+    <lastmod>2025-07-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://afanyu.netlify.app/og-image.png</image:loc>
+      <image:title>Zyra — Luxury Leather Goods Platform by Afanyu Emmanuel</image:title>
+      <image:caption>Full-stack platform digitising the lifecycle of a luxury leather goods brand. Built with React, Spring Boot, PostgreSQL, Docker.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://afanyu.netlify.app/projects/diacare</loc>
-    <lastmod>2025-05-11</lastmod>
+    <lastmod>2025-07-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://afanyu.netlify.app/og-image.png</image:loc>
+      <image:title>DiaCare — Diabetes Care System by Afanyu Emmanuel</image:title>
+      <image:caption>Diabetes care management platform with real-time chat, SOS escalation, and role-based dashboards. Built with React, Spring Boot, WebSocket.</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://afanyu.netlify.app/projects/fac-ltd</loc>
-    <lastmod>2025-05-11</lastmod>
+    <lastmod>2025-07-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://afanyu.netlify.app/og-image.png</image:loc>
+      <image:title>FAC Ltd — Trilingual Corporate Website by Afanyu Emmanuel</image:title>
+      <image:caption>Trilingual corporate website for a circular agribusiness in Rwanda. Built with React, Vite, Tailwind CSS.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://afanyu.netlify.app/projects/muhinzi</loc>
+    <lastmod>2025-07-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://afanyu.netlify.app/og-image.png</image:loc>
+      <image:title>Muhinzi — Farm &amp; Cooperative App UI/UX by Afanyu Emmanuel</image:title>
+      <image:caption>UI/UX design for a cooperative management and farm-to-market platform. Designed in Figma.</image:caption>
+    </image:image>
   </url>
 </urlset>

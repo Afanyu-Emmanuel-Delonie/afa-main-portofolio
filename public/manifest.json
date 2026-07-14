@@ -1,0 +1,14 @@
+{
+  "name": "Afanyu Emmanuel — Software Developer",
+  "short_name": "Afanyu Emmanuel",
+  "description": "Portfolio and freelance service site of Afanyu Emmanuel, software developer in Kigali, Rwanda.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#18181B",
+  "theme_color": "#18181B",
+  "lang": "en",
+  "icons": [
+    { "src": "/favicon.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/favicon.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

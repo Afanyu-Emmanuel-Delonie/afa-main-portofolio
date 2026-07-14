@@ -51,3 +51,4 @@ User-agent: FacebookBot
 Allow: /
 
 Sitemap: https://afanyu.netlify.app/sitemap.xml
+Humans: https://afanyu.netlify.app/humans.txt

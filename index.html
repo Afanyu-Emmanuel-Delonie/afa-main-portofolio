@@ -4,49 +4,81 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary SEO -->
-    <title>Afanyu Emmanuel | Software Developer — Web & Mobile Apps</title>
-    <meta name="description" content="Afanyu Emmanuel is a software developer in Kigali, Rwanda, building scalable web apps, mobile apps, and data-driven solutions that deliver real-world value." />
-    <meta name="keywords" content="Afanyu Emmanuel, software developer Kigali, fintech developer Rwanda, React developer, Spring Boot, Flutter developer, scalable web apps, freelance developer Africa, Financial Inclusion AI" />
+    <!-- ── DNS Prefetch & Preconnect (Core Web Vitals) ── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://embed.tawk.to" />
+
+    <!-- ── Primary SEO ── -->
+    <title>Afanyu Emmanuel | Software Developer — Web &amp; Mobile Apps</title>
+    <meta name="description" content="Afanyu Emmanuel is a software developer in Kigali, Rwanda, building scalable web apps, mobile apps, and data-driven solutions. Available for freelance and full-time roles." />
+    <meta name="keywords" content="Afanyu Emmanuel, software developer Kigali, fintech developer Rwanda, React developer, Spring Boot, Flutter developer, scalable web apps, freelance developer Africa, Financial Inclusion AI, full-stack developer Rwanda" />
     <meta name="author" content="Afanyu Emmanuel" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
     <link rel="canonical" href="https://afanyu.netlify.app/" />
 
-    <!-- Open Graph (Facebook, LinkedIn, WhatsApp) -->
-    <meta property="og:type" content="website" />
+    <!-- ── EEAT: Geo & Language signals ── -->
+    <meta name="geo.region" content="RW-01" />
+    <meta name="geo.placename" content="Kigali, Rwanda" />
+    <meta name="geo.position" content="-1.9441;30.0619" />
+    <meta name="ICBM" content="-1.9441, 30.0619" />
+    <meta name="language" content="English" />
+    <meta name="content-language" content="en" />
+
+    <!-- ── Open Graph (Facebook, LinkedIn, WhatsApp) ── -->
+    <meta property="og:type" content="profile" />
     <meta property="og:url" content="https://afanyu.netlify.app/" />
-    <meta property="og:title" content="Afanyu Emmanuel | Software Developer — Web & Mobile Apps" />
-    <meta property="og:description" content="Software developer in Kigali, Rwanda, building scalable web apps, mobile apps, and data-driven solutions that deliver real-world value." />
+    <meta property="og:title" content="Afanyu Emmanuel | Software Developer — Web &amp; Mobile Apps" />
+    <meta property="og:description" content="Software developer in Kigali, Rwanda, building scalable web apps, mobile apps, and data-driven solutions. Available for freelance and full-time roles." />
     <meta property="og:image" content="https://afanyu.netlify.app/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Afanyu Emmanuel — Software Developer portfolio preview" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Afanyu Emmanuel" />
+    <!-- LinkedIn profile card -->
+    <meta property="profile:first_name" content="Afanyu" />
+    <meta property="profile:last_name" content="Emmanuel" />
+    <meta property="profile:username" content="afanyu-emmanuel" />
 
-    <!-- Twitter Card -->
+    <!-- ── Twitter Card ── -->
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@afanyu_dev" />
+    <meta name="twitter:creator" content="@afanyu_dev" />
     <meta name="twitter:url" content="https://afanyu.netlify.app/" />
-    <meta name="twitter:title" content="Afanyu Emmanuel | Software Developer — Web & Mobile Apps" />
-    <meta name="twitter:description" content="Software developer in Kigali, Rwanda, building scalable web apps, mobile apps, and data-driven solutions that deliver real-world value." />
+    <meta name="twitter:title" content="Afanyu Emmanuel | Software Developer — Web &amp; Mobile Apps" />
+    <meta name="twitter:description" content="Software developer in Kigali, Rwanda, building scalable web apps, mobile apps, and data-driven solutions. Available for freelance and full-time roles." />
     <meta name="twitter:image" content="https://afanyu.netlify.app/og-image.png" />
     <meta name="twitter:image:alt" content="Afanyu Emmanuel — Software Developer portfolio preview" />
 
-    <!-- Favicon -->
+    <!-- ── Favicon & PWA ── -->
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png" />
-
-    <!-- Theme -->
+    <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#18181B" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Afanyu Emmanuel" />
 
-    <!-- JSON-LD Structured Data -->
+    <!-- ── JSON-LD: Person (Knowledge Graph + EEAT) ── -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
+      "@id": "https://afanyu.netlify.app/#person",
       "name": "Afanyu Emmanuel",
+      "alternateName": "Afanyu Emmanuel Delonie",
       "url": "https://afanyu.netlify.app",
-      "image": "https://afanyu.netlify.app/og-image.png",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://afanyu.netlify.app/og-image.png",
+        "width": 1200,
+        "height": 630
+      },
       "jobTitle": "Software Developer",
       "description": "Product-minded software developer based in Kigali, Rwanda, specialising in scalable web and mobile applications. Research background includes Financial Behavior Intelligence Models for Financial Inclusion — applying AI and data analytics to improve financial access for underserved populations.",
       "email": "afanyuemma2002@gmail.com",
@@ -54,11 +86,34 @@
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Kigali",
+        "addressRegion": "Kigali Province",
         "addressCountry": "RW"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -1.9441,
+        "longitude": 30.0619
       },
       "sameAs": [
         "https://github.com/Afanyu-Emmanuel-Delonie",
-        "https://www.linkedin.com/in/afanyu-emmanuel/"
+        "https://www.linkedin.com/in/afanyu-emmanuel/",
+        "https://afanyu.netlify.app"
+      ],
+      "mainEntityOfPage": {
+        "@type": "ProfilePage",
+        "@id": "https://afanyu.netlify.app"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "AUCA Innovation Center",
+        "url": "https://web.auca.ac.rw/news/innovation"
+      },
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Adventist University of Central Africa",
+          "url": "https://web.auca.ac.rw"
+        }
       ],
       "knowsAbout": [
         "React", "Flutter", "Spring Boot", "Tailwind CSS",
@@ -67,18 +122,137 @@
         "Fintech", "AI", "Data Analytics", "Financial Inclusion",
         "UI/UX Design", "REST APIs", "Software Architecture"
       ],
+      "knowsLanguage": [
+        { "@type": "Language", "name": "English" },
+        { "@type": "Language", "name": "French" }
+      ],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Software Developer",
+        "occupationLocation": {
+          "@type": "City",
+          "name": "Kigali",
+          "containedInPlace": { "@type": "Country", "name": "Rwanda" }
+        },
+        "skills": "React, Flutter, Spring Boot, PostgreSQL, Docker, Figma, REST APIs, WebSocket, JWT, Tailwind CSS"
+      },
       "memberOf": [
+        { "@type": "Organization", "name": "GICA Research Program" },
+        { "@type": "Organization", "name": "AUCA Innovation Center" }
+      ],
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".hero-tagline", ".about-bio"]
+      }
+    }
+    </script>
+
+    <!-- ── JSON-LD: WebSite (Sitelinks Searchbox + AI crawlers) ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://afanyu.netlify.app/#website",
+      "name": "Afanyu Emmanuel",
+      "url": "https://afanyu.netlify.app",
+      "description": "Portfolio and freelance service site of Afanyu Emmanuel, software developer in Kigali, Rwanda.",
+      "author": { "@id": "https://afanyu.netlify.app/#person" },
+      "inLanguage": "en-US",
+      "copyrightYear": 2025,
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://afanyu.netlify.app/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- ── JSON-LD: FAQPage (rich result in Google SERPs) ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
         {
-          "@type": "Organization",
-          "name": "GICA Research Program"
+          "@type": "Question",
+          "name": "What type of projects does Afanyu Emmanuel take on?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Afanyu works on web apps, mobile apps, dashboards, and landing pages — from startup MVPs to full client portals. If it involves clean code and good design, he's in."
+          }
         },
         {
-          "@type": "EducationalOrganization",
-          "name": "Andrews University"
+          "@type": "Question",
+          "name": "How long does a typical project take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A landing page or simple app takes 1–2 weeks. A full web or mobile application typically takes 4–8 weeks depending on scope and complexity."
+          }
         },
         {
-          "@type": "Organization",
-          "name": "AUCA Innovation Center"
+          "@type": "Question",
+          "name": "Does Afanyu Emmanuel work with international clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Afanyu works remotely with clients across Africa, Europe, and beyond. Time zones are never a barrier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What technologies does Afanyu Emmanuel use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Afanyu's primary stack includes React, Flutter, Spring Boot, PostgreSQL, Docker, Tailwind CSS, Firebase, and Figma."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Afanyu Emmanuel available for full-time roles?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Afanyu is open to freelance projects, long-term contracts, and full-time opportunities. Reach out to discuss what fits best."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- ── JSON-LD: ItemList of Projects (AI search visibility) ── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Projects by Afanyu Emmanuel",
+      "description": "Featured software projects built by Afanyu Emmanuel — full-stack web apps, mobile apps, and UI/UX designs.",
+      "url": "https://afanyu.netlify.app/#projects",
+      "numberOfItems": 4,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://afanyu.netlify.app/projects/zyra",
+          "name": "Zyra — Luxury Leather Goods Platform"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://afanyu.netlify.app/projects/diacare",
+          "name": "DiaCare — Diabetes Care Management System"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "url": "https://afanyu.netlify.app/projects/fac-ltd",
+          "name": "FAC Ltd — Trilingual Corporate Website"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "url": "https://afanyu.netlify.app/projects/muhinzi",
+          "name": "Muhinzi — Farm & Cooperative App UI/UX"
         }
       ]
     }
