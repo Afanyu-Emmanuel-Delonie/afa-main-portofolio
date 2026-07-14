@@ -112,7 +112,7 @@ The site is a single-page application. Sections render in this order:
 
 1. **Nav** — sticky, mobile-responsive, amber CTA button
 2. **Hero** — name, tagline, Start a Project + Download CV buttons
-3. **Stats** — 10+ Projects, 2+ Years, 98% Satisfaction, <24h Response
+3. **Stats** — 10+ Projects, 3+ Years, 98% Satisfaction, <24h Response
 4. **About** — bio, trait cards, image with grayscale hover effect
 5. **Services** — Web Development, Cross-Platform Mobile, Analytics Dashboards
 6. **TechStack** — infinite scrolling marquee of 16 tools
