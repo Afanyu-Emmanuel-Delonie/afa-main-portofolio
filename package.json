@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "test": "echo \"No tests defined\" && exit 0"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
