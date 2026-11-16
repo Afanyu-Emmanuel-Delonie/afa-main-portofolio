@@ -19,6 +19,7 @@ import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import ProjectDetailPage from './pages/ProjectDetailPage.jsx';
+import AboutPage from './pages/AboutPage.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 function HomePage() {
@@ -64,6 +65,7 @@ export default function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/projects/:id" element={<ProjectDetailPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

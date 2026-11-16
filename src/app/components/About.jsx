@@ -1,4 +1,5 @@
 import { ArrowRight, Lightbulb, Palette, Focus, Rocket } from 'lucide-react';
+import { Link } from 'react-router';
 import aboutme from '../../assets/afa-2.png';
 import Reveal from './Reveal.jsx';
 import { useLang } from '../../context/LanguageContext.jsx';
@@ -59,6 +60,9 @@ export default function About() {
                 {tx.viewProjects}
               </a>
             </div>
+            <Link to="/about" className="inline-flex items-center gap-1 body-sm text-brand hover:underline">
+              {tx.readMore} <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </Reveal>
 
         </div>
