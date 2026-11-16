@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
+    "postbuild": "node scripts/prerender.mjs",
     "dev": "vite",
     "test": "echo \"No tests defined\" && exit 0"
   },
@@ -78,10 +79,10 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "4.7.0",
+    "puppeteer": "^25.17.0",
     "sharp": "^0.34.5",
     "tailwindcss": "4.1.12",
     "vite": "6.3.5",
-    "vite-imagetools": "^6.2.9",
     "vite-plugin-image-optimizer": "^2.0.3"
   },
   "pnpm": {

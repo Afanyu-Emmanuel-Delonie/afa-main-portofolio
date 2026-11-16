@@ -12,10 +12,12 @@ export default function useSEO({
   image = OG_IMAGE,
   type = 'website',
   project = null, // pass full project object on project pages
+  noindex = false,
 }) {
   useEffect(() => {
     const canonical = `${BASE_URL}${url}`;
     const dateModified = new Date().toISOString().split('T')[0];
+    const absoluteImage = image.startsWith('http') ? image : `${BASE_URL}${image}`;
 
     document.title = title;
 
@@ -34,6 +36,7 @@ export default function useSEO({
     // ── Primary ──────────────────────────────────────────────
     setMeta('meta[name="description"]', 'content', description);
     setMeta('meta[name="author"]', 'content', AUTHOR);
+    setMeta('meta[name="robots"]', 'content', noindex ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
 
     // ── Canonical ────────────────────────────────────────────
     let link = document.querySelector('link[rel="canonical"]');
@@ -45,7 +48,7 @@ export default function useSEO({
     setMeta('meta[property="og:title"]', 'content', title);
     setMeta('meta[property="og:description"]', 'content', description);
     setMeta('meta[property="og:url"]', 'content', canonical);
-    setMeta('meta[property="og:image"]', 'content', image);
+    setMeta('meta[property="og:image"]', 'content', absoluteImage);
     setMeta('meta[property="og:image:width"]', 'content', '1200');
     setMeta('meta[property="og:image:height"]', 'content', '630');
     setMeta('meta[property="og:image:alt"]', 'content', title);
@@ -61,7 +64,7 @@ export default function useSEO({
     setMeta('meta[name="twitter:title"]', 'content', title);
     setMeta('meta[name="twitter:description"]', 'content', description);
     setMeta('meta[name="twitter:url"]', 'content', canonical);
-    setMeta('meta[name="twitter:image"]', 'content', image);
+    setMeta('meta[name="twitter:image"]', 'content', absoluteImage);
     setMeta('meta[name="twitter:image:alt"]', 'content', title);
 
     // ── Dynamic JSON-LD (project pages only) ─────────────────
@@ -113,5 +116,5 @@ export default function useSEO({
       const s = document.getElementById(JSONLD_ID);
       if (s) s.remove();
     };
-  }, [title, description, url, image, type, project]);
+  }, [title, description, url, image, type, project, noindex]);
 }

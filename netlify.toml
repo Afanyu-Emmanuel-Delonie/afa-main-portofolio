@@ -5,7 +5,21 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Every route is prerendered to its own static dist/<route>/index.html by
+# scripts/prerender.mjs (runs as the `postbuild` step), and dist/404.html is a
+# real not-found page — so there's no SPA catch-all redirect here. Unmatched
+# paths fall through to Netlify's default 404.html handling with a real 404 status.
+
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+# Uncomment once the custom domain is live, then set it as canonical everywhere
+# else (index.html, JSON-LD, sitemap/robots) before enabling this redirect.
+# [[redirects]]
+#   from = "https://afanyu.netlify.app/*"
+#   to = "https://afanyuemmanuel.com/:splat"
+#   status = 301
+#   force = true
