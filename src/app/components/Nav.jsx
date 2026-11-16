@@ -48,8 +48,12 @@ export default function Nav() {
     return () => observers.forEach((o) => o.disconnect());
   }, [pathname]);
 
+  const isLinkActive = (l) => {
+    if (l.to === '/') return pathname === '/' && activeSection === '';
+    if (l.to) return pathname === l.to;
+    return !!l.href && activeSection === l.href.replace('#', '');
+  };
   const navHref = (hash) => isHome ? hash : `/${hash}`;
-  const isActive = (href) => !!href && activeSection === href.replace('#', '');
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#18181B]/80 backdrop-blur-md border-b border-zinc-800/50">
@@ -63,21 +67,21 @@ export default function Nav() {
             {links.map((l) => l.to ? (
               <Link key={l.to} to={l.to}
                 className={`body-sm transition-colors duration-300 relative group whitespace-nowrap ${
-                  pathname === l.to ? 'text-white' : 'text-zinc-400 hover:text-white'
+                  isLinkActive(l) ? 'text-white' : 'text-zinc-400 hover:text-white'
                 }`}>
                 {l.name[lang]}
                 <span className={`absolute -bottom-1 left-0 h-0.5 bg-brand transition-all duration-300 ${
-                  pathname === l.to ? 'w-full' : 'w-0 group-hover:w-full'
+                  isLinkActive(l) ? 'w-full' : 'w-0 group-hover:w-full'
                 }`} />
               </Link>
             ) : (
               <a key={l.href} href={navHref(l.href)}
                 className={`body-sm transition-colors duration-300 relative group whitespace-nowrap ${
-                  isActive(l.href) ? 'text-white' : 'text-zinc-400 hover:text-white'
+                  isLinkActive(l) ? 'text-white' : 'text-zinc-400 hover:text-white'
                 }`}>
                 {l.name[lang]}
                 <span className={`absolute -bottom-1 left-0 h-0.5 bg-brand transition-all duration-300 ${
-                  isActive(l.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                  isLinkActive(l) ? 'w-full' : 'w-0 group-hover:w-full'
                 }`} />
               </a>
             ))}
@@ -113,14 +117,14 @@ export default function Nav() {
             {links.map((l) => l.to ? (
               <Link key={l.to} to={l.to} onClick={() => setOpen(false)}
                 className={`body-sm transition-colors py-2 ${
-                  pathname === l.to ? 'text-brand font-semibold' : 'text-zinc-400 hover:text-white'
+                  isLinkActive(l) ? 'text-brand font-semibold' : 'text-zinc-400 hover:text-white'
                 }`}>
                 {l.name[lang]}
               </Link>
             ) : (
               <a key={l.href} href={navHref(l.href)} onClick={() => setOpen(false)}
                 className={`body-sm transition-colors py-2 ${
-                  isActive(l.href) ? 'text-brand font-semibold' : 'text-zinc-400 hover:text-white'
+                  isLinkActive(l) ? 'text-brand font-semibold' : 'text-zinc-400 hover:text-white'
                 }`}>
                 {l.name[lang]}
               </a>

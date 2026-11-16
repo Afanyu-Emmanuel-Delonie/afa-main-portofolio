@@ -14,10 +14,6 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <Reveal className="space-y-8">
             <div className="space-y-4">
-              <div className="section-badge">
-                <div className="w-2 h-2 bg-brand rounded-full animate-pulse" />
-                {tx.badge}
-              </div>
               <h1 className="heading-xl text-white">
                 {tx.heading1} <span className="text-brand">{tx.heading2}</span>
               </h1>

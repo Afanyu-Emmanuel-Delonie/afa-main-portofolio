@@ -65,6 +65,7 @@
   html {
     font-size: var(--font-size);
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
     overflow-x: hidden;
     width: 100%;
   }
