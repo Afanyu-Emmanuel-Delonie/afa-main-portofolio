@@ -4,37 +4,40 @@ import { t } from '../../data/translations.js';
 
 const cdn = (path) => `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${path}`;
 
-const claudeLogo = `data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><rect width='40' height='40' rx='8' fill='%23CC785C'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-size='18' font-weight='700' font-family='sans-serif' fill='white'>C</text></svg>`;
-
 const categoryItems = [
   [
     { name: 'React',        logo: cdn('react/react-original.svg') },
-    { name: 'Flutter',      logo: cdn('flutter/flutter-original.svg') },
-    { name: 'JavaScript',   logo: cdn('javascript/javascript-original.svg') },
+    { name: 'Next.js',      logo: cdn('nextjs/nextjs-original.svg'), invert: true },
+    { name: 'TypeScript',   logo: cdn('typescript/typescript-original.svg') },
     { name: 'Tailwind CSS', logo: cdn('tailwindcss/tailwindcss-original.svg') },
-    { name: 'HTML & CSS',   logo: cdn('html5/html5-original.svg') },
-    { name: 'Figma',        logo: cdn('figma/figma-original.svg') },
-    { name: 'npm',          logo: cdn('npm/npm-original-wordmark.svg') },
   ],
   [
-    { name: 'Django',       logo: cdn('django/django-plain.svg'),            invert: true },
-    { name: 'Django REST',  logo: cdn('django/django-plain.svg'),            invert: true },
-    { name: 'Spring Boot',  logo: cdn('spring/spring-original.svg') },
-    { name: 'Firebase',     logo: cdn('firebase/firebase-plain.svg') },
-    { name: 'PostgreSQL',   logo: cdn('postgresql/postgresql-original.svg') },
-    { name: 'Python',       logo: cdn('python/python-original.svg') },
-    { name: 'Java',         logo: cdn('java/java-original.svg') },
-    { name: 'Supabase',     logo: cdn('supabase/supabase-original.svg') },
+    { name: 'Flutter', logo: cdn('flutter/flutter-original.svg') },
+    { name: 'Dart',    logo: cdn('dart/dart-original.svg') },
   ],
   [
-    { name: 'Git',    logo: cdn('git/git-original.svg') },
-    { name: 'GitHub', logo: cdn('github/github-original.svg'), invert: true },
-    { name: 'Canva',  logo: cdn('canva/canva-original.svg') },
-    { name: 'Notion', logo: 'https://www.notion.so/images/favicon.ico' },
-    { name: 'Slack',  logo: 'https://a.slack-edge.com/80588/marketing/img/meta/favicon-32.png' },
-    { name: 'Jira',   logo: cdn('jira/jira-original.svg') },
-    { name: 'Gemini', logo: 'https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg' },
-    { name: 'Claude', logo: claudeLogo },
+    { name: 'Flask',      logo: cdn('flask/flask-original.svg'), invert: true },
+    { name: 'Django',     logo: cdn('django/django-plain.svg'), invert: true },
+    { name: 'Spring Boot', logo: cdn('spring/spring-original.svg') },
+    { name: 'Node.js',    logo: cdn('nodejs/nodejs-original.svg') },
+  ],
+  [
+    { name: 'PostgreSQL',  logo: cdn('postgresql/postgresql-original.svg') },
+    { name: 'Oracle PL/SQL', logo: cdn('oracle/oracle-original.svg') },
+    { name: 'SQL Server',  logo: cdn('microsoftsqlserver/microsoftsqlserver-plain.svg') },
+    { name: 'Firebase',    logo: cdn('firebase/firebase-plain.svg') },
+  ],
+  [
+    { name: 'Figma',     logo: cdn('figma/figma-original.svg') },
+    { name: 'Photoshop', logo: cdn('photoshop/photoshop-plain.svg') },
+    { name: 'Canva',     logo: cdn('canva/canva-original.svg') },
+  ],
+  [
+    { name: 'Git',     logo: cdn('git/git-original.svg') },
+    { name: 'GitHub',  logo: cdn('github/github-original.svg'), invert: true },
+    { name: 'Vercel',  logo: cdn('vercel/vercel-original.svg'), invert: true },
+    { name: 'Netlify', logo: cdn('netlify/netlify-original.svg') },
+    { name: 'Linux',   logo: cdn('linux/linux-original.svg'), invert: true },
   ],
 ];
 

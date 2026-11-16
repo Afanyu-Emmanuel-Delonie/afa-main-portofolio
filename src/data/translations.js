@@ -27,7 +27,7 @@ export const t = {
       titleSpan: 'Just Code',
       intro: "I'm Afanyu Emmanuel, a software engineer and UI/UX designer in Kigali, Rwanda. I build products that make business sense: designed for real users, engineered to scale.",
       differentiatorHeading: 'What makes me different',
-      differentiator: "I bring a balance most engineers don't. I understand how businesses run — I work in banking operations alongside my software engineering studies. I think like a product person about users, priorities, and trade-offs. I design in Figma before I write a line of code. And I build systems that can grow from an MVP into a production product.",
+      differentiator: "I bring a balance most engineers don't. I understand how businesses run — I work in banking operations alongside my software engineering studies. I think like a product person about users, priorities, and trade-offs. I design in Figma before I write a line of code. And I build full-stack, pairing React/Next.js with Flask/Django on the backend, in systems that can grow from an MVP into a production product.",
       examplesHeading: 'How that shows in my work',
       examples: [
         { text: "Digitising a luxury leather atelier's entire production pipeline — from raw materials to customer orders — with full traceability.", project: 'zyra' },
@@ -139,12 +139,7 @@ export const t = {
       title: 'What I',
       titleSpan: 'Work With',
       sub: 'Technologies I use across web, mobile and backend',
-      categories: ['Frontend & Mobile', 'Backend & Database', 'Other Tools'],
-    },
-    skills: {
-      title: 'My',
-      titleSpan: 'Skills',
-      sub: 'Technologies I work with every day',
+      categories: ['Frontend', 'Mobile', 'Backend', 'Data', 'Design', 'Tools'],
     },
     journey: {
       title: 'My',
@@ -195,7 +190,7 @@ export const t = {
       titleSpan: 'Du Code',
       intro: "Je suis Afanyu Emmanuel, ingénieur logiciel et designer UI/UX à Kigali, au Rwanda. Je construis des produits qui ont du sens pour l'entreprise : pensés pour de vrais utilisateurs, conçus pour évoluer.",
       differentiatorHeading: 'Ce qui me distingue',
-      differentiator: "J'apporte un équilibre que peu d'ingénieurs ont. Je comprends le fonctionnement des entreprises — je travaille dans les opérations bancaires en parallèle de mes études en génie logiciel. Je raisonne comme un product manager sur les utilisateurs, les priorités et les compromis. Je conçois dans Figma avant d'écrire une seule ligne de code. Et je construis des systèmes capables de passer d'un MVP à un produit en production.",
+      differentiator: "J'apporte un équilibre que peu d'ingénieurs ont. Je comprends le fonctionnement des entreprises — je travaille dans les opérations bancaires en parallèle de mes études en génie logiciel. Je raisonne comme un product manager sur les utilisateurs, les priorités et les compromis. Je conçois dans Figma avant d'écrire une seule ligne de code. Et je construis en full-stack, en associant React/Next.js à Flask/Django côté backend, dans des systèmes capables de passer d'un MVP à un produit en production.",
       examplesHeading: 'Comment cela se traduit dans mon travail',
       examples: [
         { text: "Numériser l'ensemble de la chaîne de production d'un atelier de maroquinerie de luxe — des matières premières aux commandes clients — avec une traçabilité complète.", project: 'zyra' },
@@ -307,12 +302,7 @@ export const t = {
       title: 'Ce avec quoi je',
       titleSpan: 'Travaille',
       sub: 'Technologies utilisees en web, mobile et backend',
-      categories: ['Web & Mobile', 'Backend & Base de donnees', 'Autres Outils'],
-    },
-    skills: {
-      title: 'Mes',
-      titleSpan: 'Competences',
-      sub: 'Technologies avec lesquelles je travaille chaque jour',
+      categories: ['Frontend', 'Mobile', 'Backend', 'Donnees', 'Design', 'Outils'],
     },
     journey: {
       title: 'Mon',
