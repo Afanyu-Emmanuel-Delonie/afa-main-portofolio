@@ -11,11 +11,14 @@ export default function useSEO({
   url,
   image = OG_IMAGE,
   type = 'website',
-  project = null, // pass full project object on project pages
+  project = null, // pass full project object on /projects/:id pages
+  design = null, // pass full case-study object on /design/:id pages
+  noindex = false,
 }) {
   useEffect(() => {
     const canonical = `${BASE_URL}${url}`;
     const dateModified = new Date().toISOString().split('T')[0];
+    const absoluteImage = image.startsWith('http') ? image : `${BASE_URL}${image}`;
 
     document.title = title;
 
@@ -34,6 +37,7 @@ export default function useSEO({
     // ── Primary ──────────────────────────────────────────────
     setMeta('meta[name="description"]', 'content', description);
     setMeta('meta[name="author"]', 'content', AUTHOR);
+    setMeta('meta[name="robots"]', 'content', noindex ? 'noindex, nofollow' : 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
 
     // ── Canonical ────────────────────────────────────────────
     let link = document.querySelector('link[rel="canonical"]');
@@ -45,7 +49,7 @@ export default function useSEO({
     setMeta('meta[property="og:title"]', 'content', title);
     setMeta('meta[property="og:description"]', 'content', description);
     setMeta('meta[property="og:url"]', 'content', canonical);
-    setMeta('meta[property="og:image"]', 'content', image);
+    setMeta('meta[property="og:image"]', 'content', absoluteImage);
     setMeta('meta[property="og:image:width"]', 'content', '1200');
     setMeta('meta[property="og:image:height"]', 'content', '630');
     setMeta('meta[property="og:image:alt"]', 'content', title);
@@ -61,7 +65,7 @@ export default function useSEO({
     setMeta('meta[name="twitter:title"]', 'content', title);
     setMeta('meta[name="twitter:description"]', 'content', description);
     setMeta('meta[name="twitter:url"]', 'content', canonical);
-    setMeta('meta[name="twitter:image"]', 'content', image);
+    setMeta('meta[name="twitter:image"]', 'content', absoluteImage);
     setMeta('meta[name="twitter:image:alt"]', 'content', title);
 
     // ── Dynamic JSON-LD (project pages only) ─────────────────
@@ -107,11 +111,44 @@ export default function useSEO({
       script.type = 'application/ld+json';
       script.textContent = JSON.stringify(schemas);
       document.head.appendChild(script);
+    } else if (design) {
+      const schemas = [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Design', item: `${BASE_URL}/design` },
+            { '@type': 'ListItem', position: 3, name: design.title, item: canonical },
+          ],
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'CreativeWork',
+          name: design.title,
+          description: design.tagline,
+          url: canonical,
+          creator: {
+            '@type': 'Person',
+            name: AUTHOR,
+            url: `${BASE_URL}/`,
+          },
+          keywords: design.tools?.join(', '),
+          about: design.category,
+          dateModified,
+        },
+      ];
+
+      const script = document.createElement('script');
+      script.id = JSONLD_ID;
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(schemas);
+      document.head.appendChild(script);
     }
 
     return () => {
       const s = document.getElementById(JSONLD_ID);
       if (s) s.remove();
     };
-  }, [title, description, url, image, type, project]);
+  }, [title, description, url, image, type, project, design, noindex]);
 }

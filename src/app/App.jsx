@@ -19,11 +19,13 @@ import Contact from './components/Contact.jsx';
 import Footer from './components/Footer.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import ProjectDetailPage from './pages/ProjectDetailPage.jsx';
+import AboutPage from './pages/AboutPage.jsx';
+import NotFound from './pages/NotFound.jsx';
 
 function HomePage() {
   useSEO({
-    title: 'Afanyu Emmanuel | Software Developer — Web & Mobile Apps',
-    description: 'Afanyu Emmanuel is a software developer in Kigali, Rwanda, building scalable web apps, mobile apps, and data-driven solutions. Available for freelance and full-time roles.',
+    title: 'Afanyu Emmanuel – Product-Minded Software Engineer & UI/UX Designer, Kigali',
+    description: 'Afanyu Emmanuel is a product-minded software engineer and UI/UX designer in Kigali, Rwanda, building scalable web and mobile apps that solve real business problems.',
     url: '/',
   });
   return (
@@ -63,7 +65,9 @@ export default function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/projects/:id" element={<ProjectDetailPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>

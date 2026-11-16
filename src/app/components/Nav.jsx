@@ -5,11 +5,10 @@ import { useLang } from '../../context/LanguageContext.jsx';
 import { t } from '../../data/translations.js';
 
 const links = [
-  { name: { en: 'About',    fr: 'À Propos'  }, href: '#about' },
+  { name: { en: 'About',    fr: 'À Propos'  }, to: '/about' },
   { name: { en: 'Services', fr: 'Services'  }, href: '#services' },
   { name: { en: 'Skills',   fr: 'Compétences' }, href: '#skills' },
   { name: { en: 'Projects', fr: 'Projets'   }, href: '#projects' },
-  { name: { en: 'Journey',  fr: 'Parcours'  }, href: '#journey' },
   { name: { en: 'Contact',  fr: 'Contact'   }, href: '#contact' },
 ];
 
@@ -21,7 +20,7 @@ export default function Nav() {
   const isHome = pathname === '/';
 
   useEffect(() => {
-    const sectionIds = links.map((l) => l.href.replace('#', ''));
+    const sectionIds = links.filter((l) => l.href).map((l) => l.href.replace('#', ''));
     const observers = [];
 
     // Clear active when hero is in view
@@ -49,8 +48,12 @@ export default function Nav() {
     return () => observers.forEach((o) => o.disconnect());
   }, [pathname]);
 
+  const isLinkActive = (l) => {
+    if (l.to === '/') return pathname === '/' && activeSection === '';
+    if (l.to) return pathname === l.to;
+    return !!l.href && activeSection === l.href.replace('#', '');
+  };
   const navHref = (hash) => isHome ? hash : `/${hash}`;
-  const isActive = (href) => activeSection === href.replace('#', '');
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#18181B]/80 backdrop-blur-md border-b border-zinc-800/50">
@@ -61,14 +64,24 @@ export default function Nav() {
           </Link>
 
           <div className="flex items-center justify-center gap-4 xl:gap-8">
-            {links.map((l) => (
-              <a key={l.href} href={navHref(l.href)}
+            {links.map((l) => l.to ? (
+              <Link key={l.to} to={l.to}
                 className={`body-sm transition-colors duration-300 relative group whitespace-nowrap ${
-                  isActive(l.href) ? 'text-white' : 'text-zinc-400 hover:text-white'
+                  isLinkActive(l) ? 'text-white' : 'text-zinc-400 hover:text-white'
                 }`}>
                 {l.name[lang]}
                 <span className={`absolute -bottom-1 left-0 h-0.5 bg-brand transition-all duration-300 ${
-                  isActive(l.href) ? 'w-full' : 'w-0 group-hover:w-full'
+                  isLinkActive(l) ? 'w-full' : 'w-0 group-hover:w-full'
+                }`} />
+              </Link>
+            ) : (
+              <a key={l.href} href={navHref(l.href)}
+                className={`body-sm transition-colors duration-300 relative group whitespace-nowrap ${
+                  isLinkActive(l) ? 'text-white' : 'text-zinc-400 hover:text-white'
+                }`}>
+                {l.name[lang]}
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-brand transition-all duration-300 ${
+                  isLinkActive(l) ? 'w-full' : 'w-0 group-hover:w-full'
                 }`} />
               </a>
             ))}
@@ -101,10 +114,17 @@ export default function Nav() {
 
         {open && (
           <div className="lg:hidden py-6 border-t border-zinc-800/50 flex flex-col gap-4">
-            {links.map((l) => (
+            {links.map((l) => l.to ? (
+              <Link key={l.to} to={l.to} onClick={() => setOpen(false)}
+                className={`body-sm transition-colors py-2 ${
+                  isLinkActive(l) ? 'text-brand font-semibold' : 'text-zinc-400 hover:text-white'
+                }`}>
+                {l.name[lang]}
+              </Link>
+            ) : (
               <a key={l.href} href={navHref(l.href)} onClick={() => setOpen(false)}
                 className={`body-sm transition-colors py-2 ${
-                  isActive(l.href) ? 'text-brand font-semibold' : 'text-zinc-400 hover:text-white'
+                  isLinkActive(l) ? 'text-brand font-semibold' : 'text-zinc-400 hover:text-white'
                 }`}>
                 {l.name[lang]}
               </a>

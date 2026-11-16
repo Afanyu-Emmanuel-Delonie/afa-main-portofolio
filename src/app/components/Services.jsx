@@ -1,9 +1,9 @@
-import { Globe, Smartphone, Layout } from 'lucide-react';
+import { Globe, Smartphone, Search, Palette } from 'lucide-react';
 import Reveal from './Reveal.jsx';
 import { useLang } from '../../context/LanguageContext.jsx';
 import { t } from '../../data/translations.js';
 
-const icons = [Globe, Smartphone, Layout];
+const icons = [Globe, Smartphone, Search, Palette];
 
 export default function Services() {
   const { lang } = useLang();
@@ -17,7 +17,7 @@ export default function Services() {
           <p className="body-lg text-zinc-400 max-w-2xl mx-auto">{tx.title}</p>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {tx.items.map((service, i) => {
             const Icon = icons[i];
             return (

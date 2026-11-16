@@ -78,9 +78,9 @@ export default function Projects() {
         <Reveal className="text-center mt-12">
           <p className="section-subtitle mb-6">{tx.likeWhat}</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Link to="/#contact" className="btn-primary justify-center">
+            <a href="#contact" className="btn-primary justify-center">
               {tx.startProject} <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
           </div>
         </Reveal>
       </div>

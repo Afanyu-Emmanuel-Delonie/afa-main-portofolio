@@ -4,11 +4,10 @@ import { useLang } from '../../context/LanguageContext.jsx';
 import { t } from '../../data/translations.js';
 
 const links = [
-  { name: { en: 'About',    fr: 'À Propos'     }, href: '#about' },
+  { name: { en: 'About',    fr: 'À Propos'     }, to: '/about' },
   { name: { en: 'Services', fr: 'Services'      }, href: '#services' },
   { name: { en: 'Projects', fr: 'Projets'       }, href: '#projects' },
   { name: { en: 'Skills',   fr: 'Compétences'   }, href: '#skills' },
-  { name: { en: 'Journey',  fr: 'Parcours'      }, href: '#journey' },
   { name: { en: 'Contact',  fr: 'Contact'       }, href: '#contact' },
 ];
 
@@ -28,7 +27,11 @@ export default function Footer() {
           </Link>
 
           <div className="flex flex-wrap justify-center gap-6">
-            {links.map((l) => (
+            {links.map((l) => l.to ? (
+              <Link key={l.to} to={l.to} className="body-sm text-zinc-400 hover:text-white transition-colors duration-300">
+                {l.name[lang]}
+              </Link>
+            ) : (
               <a key={l.href} href={navHref(l.href)} className="body-sm text-zinc-400 hover:text-white transition-colors duration-300">
                 {l.name[lang]}
               </a>

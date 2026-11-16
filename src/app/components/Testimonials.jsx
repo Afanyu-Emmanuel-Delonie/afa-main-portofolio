@@ -54,66 +54,61 @@ export default function Testimonials() {
     <section id="testimonials" className="bg-[#18181B] border-t border-zinc-800 overflow-hidden">
       <div className="max-container padding-container section-padding">
 
-        {/* Header */}
         <Reveal className="text-center mb-10">
           <h2 className="section-title mb-3">{tx.title} <span className="text-brand">{tx.titleSpan}</span></h2>
           <p className="section-subtitle">{tx.sub}</p>
         </Reveal>
 
-      </div>
-
-      {/* Scrollable track — aligned to the same centered max-width as the header */}
-      <div
-        ref={scrollRef}
-        className="max-container flex gap-5 overflow-x-auto hide-scrollbar cursor-grab select-none padding-container pb-2"
-        style={{ scrollPaddingLeft: '1rem' }}
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseUp}
-        onMouseMove={onMouseMove}
-      >
-        {testimonials.map(({ name, role, quote, initials, stars }, i) => (
-          <div
-            key={i}
-            className="card-darker shrink-0 w-[320px] sm:w-[380px] p-8 flex flex-col justify-between gap-8 relative overflow-hidden"
-          >
-            <span
-              className="absolute -top-2 -right-1 text-[6rem] font-bold text-zinc-800 leading-none select-none pointer-events-none"
-              style={{ fontFamily: 'var(--font-heading)' }}
-            >&quot;</span>
-            <div className="space-y-4 relative">
-              <Stars count={stars} />
-              <p className="body-sm text-zinc-400">&quot;{quote}&quot;</p>
-            </div>
-            <div className="flex items-center gap-3 relative">
-              <Avatar initials={initials} />
-              <div>
-                <p className="body-sm font-semibold text-white">{name}</p>
-                <p className="text-xs text-zinc-500">{role}</p>
+        <div
+          ref={scrollRef}
+          className="flex gap-5 overflow-x-auto hide-scrollbar cursor-grab select-none pb-2"
+          onMouseDown={onMouseDown}
+          onMouseUp={onMouseUp}
+          onMouseLeave={onMouseUp}
+          onMouseMove={onMouseMove}
+        >
+          {testimonials.map(({ name, role, quote, initials, stars }, i) => (
+            <div
+              key={i}
+              className="card-darker shrink-0 w-[300px] sm:w-[360px] p-8 flex flex-col justify-between gap-8 relative overflow-hidden"
+            >
+              <span
+                className="absolute -top-2 -right-1 text-[6rem] font-bold text-zinc-800 leading-none select-none pointer-events-none"
+                style={{ fontFamily: 'var(--font-heading)' }}
+              >&quot;</span>
+              <div className="space-y-4 relative">
+                <Stars count={stars} />
+                <p className="body-sm text-zinc-400">&quot;{quote}&quot;</p>
+              </div>
+              <div className="flex items-center gap-3 relative">
+                <Avatar initials={initials} />
+                <div>
+                  <p className="body-sm font-semibold text-white">{name}</p>
+                  <p className="text-xs text-zinc-500">{role}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* Mobile controllers */}
-      <div className="flex sm:hidden items-center justify-center gap-3 mt-8 pb-2">
-        <button
-          onClick={() => scroll(-1)}
-          aria-label="Previous testimonial"
-          className="w-10 h-10 rounded-full border border-zinc-700 hover:border-[#F59E0B] text-zinc-400 hover:text-brand flexCenter transition-all duration-300"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-        <button
-          onClick={() => scroll(1)}
-          aria-label="Next testimonial"
-          className="w-10 h-10 rounded-full border border-zinc-700 hover:border-[#F59E0B] text-zinc-400 hover:text-brand flexCenter transition-all duration-300"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
-      </div>
+        <div className="flex items-center justify-center gap-3 mt-8">
+          <button
+            onClick={() => scroll(-1)}
+            aria-label="Previous testimonial"
+            className="w-10 h-10 rounded-full border border-zinc-700 hover:border-[#F59E0B] text-zinc-400 hover:text-brand flexCenter transition-all duration-300"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={() => scroll(1)}
+            aria-label="Next testimonial"
+            className="w-10 h-10 rounded-full border border-zinc-700 hover:border-[#F59E0B] text-zinc-400 hover:text-brand flexCenter transition-all duration-300"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
 
+      </div>
     </section>
   );
 }
