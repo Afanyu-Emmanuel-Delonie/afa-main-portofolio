@@ -11,7 +11,8 @@ export default function useSEO({
   url,
   image = OG_IMAGE,
   type = 'website',
-  project = null, // pass full project object on project pages
+  project = null, // pass full project object on /projects/:id pages
+  design = null, // pass full case-study object on /design/:id pages
   noindex = false,
 }) {
   useEffect(() => {
@@ -110,11 +111,44 @@ export default function useSEO({
       script.type = 'application/ld+json';
       script.textContent = JSON.stringify(schemas);
       document.head.appendChild(script);
+    } else if (design) {
+      const schemas = [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` },
+            { '@type': 'ListItem', position: 2, name: 'Design', item: `${BASE_URL}/design` },
+            { '@type': 'ListItem', position: 3, name: design.title, item: canonical },
+          ],
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'CreativeWork',
+          name: design.title,
+          description: design.tagline,
+          url: canonical,
+          creator: {
+            '@type': 'Person',
+            name: AUTHOR,
+            url: `${BASE_URL}/`,
+          },
+          keywords: design.tools?.join(', '),
+          about: design.category,
+          dateModified,
+        },
+      ];
+
+      const script = document.createElement('script');
+      script.id = JSONLD_ID;
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(schemas);
+      document.head.appendChild(script);
     }
 
     return () => {
       const s = document.getElementById(JSONLD_ID);
       if (s) s.remove();
     };
-  }, [title, description, url, image, type, project, noindex]);
+  }, [title, description, url, image, type, project, design, noindex]);
 }

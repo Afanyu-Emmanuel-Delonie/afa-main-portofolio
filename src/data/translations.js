@@ -69,6 +69,16 @@ export const t = {
       startProject: 'Start a Project',
       likeWhat: "Like what you see? Let's create something great together.",
     },
+    design: {
+      badge: 'UI/UX Design',
+      title: 'Design',
+      titleSpan: 'Case Studies',
+      sub: 'A look at the research, process, and systems behind a few recent design projects',
+      viewAll: 'View All Case Studies',
+      backToDesign: 'All Case Studies',
+      likeWhat: "Like how I think about design? Let's talk about yours.",
+      startProject: 'Start a Project',
+    },
     howIWork: {
       title: 'How I',
       titleSpan: 'Work',
@@ -226,6 +236,16 @@ export const t = {
       sub: 'Une selection de travaux dont je suis fier',
       startProject: 'Demarrer un projet',
       likeWhat: 'Vous aimez ce que vous voyez ? Creons quelque chose ensemble.',
+    },
+    design: {
+      badge: 'Design UI/UX',
+      title: 'Etudes de',
+      titleSpan: 'Cas',
+      sub: 'Un apercu de la recherche, du processus et des systemes derriere quelques projets de design recents',
+      viewAll: 'Voir Toutes les Etudes de Cas',
+      backToDesign: 'Toutes les Etudes de Cas',
+      likeWhat: 'Vous aimez ma facon de penser le design ? Parlons du votre.',
+      startProject: 'Demarrer un projet',
     },
     howIWork: {
       title: 'Comment je',

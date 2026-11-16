@@ -10,6 +10,7 @@ import About from './components/About.jsx';
 import Services from './components/Services.jsx';
 import TechStack from './components/TechStack.jsx';
 import Projects from './components/Projects.jsx';
+import DesignPreview from './components/DesignPreview.jsx';
 import Journey from './components/Journey.jsx';
 import HowIWork from './components/HowIWork.jsx';
 import FAQ from './components/FAQ.jsx';
@@ -20,6 +21,8 @@ import Footer from './components/Footer.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import ProjectDetailPage from './pages/ProjectDetailPage.jsx';
 import AboutPage from './pages/AboutPage.jsx';
+import DesignPage from './pages/DesignPage.jsx';
+import DesignDetailPage from './pages/DesignDetailPage.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 function HomePage() {
@@ -40,6 +43,7 @@ function HomePage() {
         <Services />
         <TechStack />
         <Projects />
+        <DesignPreview />
         <Journey />
         <HowIWork />
         <Testimonials />
@@ -66,6 +70,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/design" element={<DesignPage />} />
+          <Route path="/design/:id" element={<DesignDetailPage />} />
           <Route path="/projects/:id" element={<ProjectDetailPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
