@@ -34,16 +34,18 @@ export default function About() {
 
           <Reveal delay={150} className="space-y-6 order-1 lg:order-2">
             <div className="space-y-3">
-              <span className="section-badge">
-                <div className="w-1.5 h-1.5 rounded-full bg-brand" />
-                {tx.badge}
-              </span>
+
               <h2 className="section-title" style={{ lineHeight: 1.1 }}>
                 {tx.title} <span className="text-brand">{tx.titleSpan}</span>
               </h2>
             </div>
             <p className="body-md text-zinc-400">{tx.p1}</p>
-            <p className="body-md text-zinc-400">{tx.p2}</p>
+            <p className="body-md text-zinc-400">
+              {tx.p2}
+              <Link to="/about" className="sr-only" aria-hidden="true" tabIndex={-1}>
+                {tx.readMore}
+              </Link>
+            </p>
             <div className="grid grid-cols-2 gap-3 pt-2">
               {tx.traits.map((label, i) => (
                 <div key={label} className="flex items-center gap-2 px-4 py-3 bg-zinc-900 border border-zinc-800 rounded-xl">
@@ -52,17 +54,14 @@ export default function About() {
                 </div>
               ))}
             </div>
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <a href="#contact" className="btn-sm-primary justify-center">
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a href="#contact" className="btn-sm-primary">
                 {tx.workWithMe} <ArrowRight className="w-4 h-4" />
               </a>
-              <a href="#projects" className="btn-sm-outline justify-center">
+              <a href="#projects" className="btn-sm-outline">
                 {tx.viewProjects}
               </a>
             </div>
-            <Link to="/about" className="inline-flex items-center gap-1 body-sm text-brand hover:underline">
-              {tx.readMore} <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
           </Reveal>
 
         </div>

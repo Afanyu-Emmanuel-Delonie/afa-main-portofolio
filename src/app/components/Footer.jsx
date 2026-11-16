@@ -7,9 +7,7 @@ const links = [
   { name: { en: 'About',    fr: 'À Propos'     }, to: '/about' },
   { name: { en: 'Services', fr: 'Services'      }, href: '#services' },
   { name: { en: 'Projects', fr: 'Projets'       }, href: '#projects' },
-  { name: { en: 'Design',   fr: 'Design'        }, to: '/design' },
   { name: { en: 'Skills',   fr: 'Compétences'   }, href: '#skills' },
-  { name: { en: 'Journey',  fr: 'Parcours'      }, href: '#journey' },
   { name: { en: 'Contact',  fr: 'Contact'       }, href: '#contact' },
 ];
 

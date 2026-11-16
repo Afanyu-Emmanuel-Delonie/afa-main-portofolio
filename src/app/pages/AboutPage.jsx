@@ -5,6 +5,7 @@ import networkingImg from '../../assets/afa-3.png';
 import Nav from '../components/Nav.jsx';
 import Footer from '../components/Footer.jsx';
 import Reveal from '../components/Reveal.jsx';
+import Journey from '../components/Journey.jsx';
 import useSEO from '../../hooks/useSEO.js';
 
 const values = [
@@ -16,7 +17,7 @@ const values = [
   {
     icon: <Code2 className="w-5 h-5 text-brand" />,
     title: 'Engineering with intent',
-    body: 'Clean code is not a style preference — it is a form of respect for the next person who reads it, including future me.',
+    body: 'Clean code is not a style preference. It is a form of respect for the next person who reads it, including future me.',
   },
   {
     icon: <Lightbulb className="w-5 h-5 text-brand" />,
@@ -26,42 +27,14 @@ const values = [
   {
     icon: <Microscope className="w-5 h-5 text-brand" />,
     title: 'Research-backed thinking',
-    body: 'My work in Financial Inclusion AI taught me to combine data, behaviour, and design — not just build features, but understand impact.',
-  },
-];
-
-const timeline = [
-  {
-    year: '2021',
-    heading: 'The beginning',
-    body: 'I wrote my first lines of code out of frustration — I had an idea and no way to build it. That gap between imagination and execution became the thing I decided to close.',
-  },
-  {
-    year: '2023',
-    heading: 'First professional role',
-    body: 'Joined ZiloTech as a software developer. Real deadlines, real users, real consequences. It sharpened everything — problem-solving, communication, and the discipline to ship.',
-  },
-  {
-    year: '2024',
-    heading: 'Going deeper on mobile',
-    body: 'Interned at FreshSense where I specialised in Flutter and mobile architecture. I learned that great mobile UX is not a smaller version of web — it is a completely different conversation.',
-  },
-  {
-    year: '2025',
-    heading: 'Building at scale',
-    body: 'Contracted with WAO Sport to help build a national streaming ecosystem in Ghana. First time working on infrastructure that needed to handle thousands of concurrent users.',
-  },
-  {
-    year: '2026',
-    heading: 'Research meets product',
-    body: 'At AUCA Innovation Center, I am working at the intersection of UI/UX, backend architecture, and DevOps — while also contributing to research on Financial Behavior Intelligence Models for Financial Inclusion.',
+    body: 'My work in Financial Inclusion AI taught me to combine data, behaviour, and design. Not just build features, but understand impact.',
   },
 ];
 
 export default function AboutPage() {
   useSEO({
-    title: 'About Afanyu Emmanuel | Software Developer, Kigali Rwanda',
-    description: 'The story behind Afanyu Emmanuel — a product-minded software developer in Kigali, Rwanda, building web and mobile products that balance engineering quality with real user needs.',
+    title: 'About Afanyu Emmanuel | Software Engineer & UI/UX Designer, Kigali',
+    description: 'The story behind Afanyu Emmanuel, a product-minded software engineer and UI/UX designer in Kigali, Rwanda, building web and mobile products that balance engineering quality with real user needs.',
     url: '/about',
     type: 'profile',
   });
@@ -77,11 +50,11 @@ export default function AboutPage() {
             <div className="w-1.5 h-1.5 rounded-full bg-brand" />
             About Me
           </span>
-          <h1 className="section-title mb-6" style={{ lineHeight: 1.1 }}>
-            I build things that <span className="text-brand">actually work</span> for the people using them.
+          <h1 className="section-title mb-4" style={{ lineHeight: 1.1 }}>
+            I build things that <span className="text-brand">work.</span>
           </h1>
-          <p className="body-lg text-zinc-400 max-w-2xl">
-            Not just technically — but intuitively. I care about the gap between what a product does and what a user expects it to do. Closing that gap is the work.
+          <p className="body-md text-zinc-400 max-w-xl">
+            Product-minded developer. Kigali, Rwanda.
           </p>
         </Reveal>
       </div>
@@ -95,7 +68,7 @@ export default function AboutPage() {
             <div className="relative overflow-hidden rounded-2xl border border-zinc-800 group-hover:border-[#F59E0B]/50 transition-all duration-500 aspect-[4/5]">
               <img
                 src={aboutMe}
-                alt="Afanyu Emmanuel, software developer in Kigali Rwanda"
+                alt="Afanyu Emmanuel, software engineer and UI/UX designer in Kigali"
                 width={600} height={750}
                 loading="eager"
                 decoding="async"
@@ -109,25 +82,17 @@ export default function AboutPage() {
           </Reveal>
 
           <Reveal delay={150} className="space-y-8 pt-2">
-            {/* Origin */}
             <div>
-              <p className="label-xs text-brand mb-3">Where it started</p>
+              <p className="label-xs text-brand mb-3">What I believe</p>
               <p className="body-md text-zinc-300 leading-relaxed">
-                I grew up watching problems go unsolved because the right tool didn't exist — or existed but was too complicated for the people who needed it most. That observation became a direction.
+                Good products don't just solve problems. They make people feel heard. There's a difference between a product that works and one that people actually want to use. The best ones do both: they fix the real problem <em className="text-zinc-200 not-italic font-medium">and</em> they feel comfortable, intuitive, almost obvious. People don't want to just see a solution on a screen. They want to feel like the product understands them.
               </p>
             </div>
 
             <div>
-              <p className="label-xs text-brand mb-3">What I actually do</p>
+              <p className="label-xs text-brand mb-3">How that shapes my work</p>
               <p className="body-md text-zinc-300 leading-relaxed">
-                I design and build web and mobile products — from the first Figma frame to the deployed backend. I work full-stack: React and Flutter on the front, Spring Boot and PostgreSQL on the back, Docker for deployment. But the technical stack is secondary. The primary question is always: <em className="text-zinc-200 not-italic font-medium">does this solve the right problem, for the right person, in the right way?</em>
-              </p>
-            </div>
-
-            <div>
-              <p className="label-xs text-brand mb-3">What makes me different</p>
-              <p className="body-md text-zinc-300 leading-relaxed">
-                I have worked in banking operations alongside my engineering studies. That means I understand how businesses actually run — the constraints, the compliance, the people who will use the software on a Monday morning when they're already stressed. I bring that context into every product decision.
+                That balance between solving the right problem and building something people genuinely enjoy using is what I chase on every project. I work full-stack: React and Flutter on the front, Spring Boot and PostgreSQL on the back. But the stack is always secondary to the question: does this feel right for the person using it?
               </p>
             </div>
 
@@ -169,58 +134,23 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* ── Timeline ── */}
-      <div className="border-t border-zinc-800">
-        <div className="max-container padding-container py-20 lg:py-28">
-          <Reveal className="mb-12">
-            <p className="label-xs text-brand mb-3">The journey</p>
-            <h2 className="heading-md text-white max-w-xl">
-              Five years of building, learning, and shipping.
-            </h2>
-          </Reveal>
-          <div className="relative">
-            {/* vertical line */}
-            <div className="absolute left-[11px] top-2 bottom-2 w-px bg-zinc-800 hidden sm:block" />
-            <div className="space-y-10">
-              {timeline.map(({ year, heading, body }, i) => (
-                <Reveal key={year} delay={i * 80}>
-                  <div className="sm:pl-10 relative flex gap-6 sm:gap-0">
-                    {/* dot */}
-                    <div className="hidden sm:flex absolute left-0 top-1 w-6 h-6 rounded-full bg-[#18181B] border-2 border-[#F59E0B]/60 items-center justify-center shrink-0">
-                      <div className="w-2 h-2 rounded-full bg-brand" />
-                    </div>
-                    <div>
-                      <span className="label-xs text-brand mb-1 block">{year}</span>
-                      <p className="body-md font-semibold text-white mb-1">{heading}</p>
-                      <p className="body-sm text-zinc-400">{body}</p>
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* ── Journey ── */}
+      <Journey />
 
       {/* ── Research ── */}
       <div className="border-t border-zinc-800 bg-zinc-950">
         <div className="max-container padding-container py-20 lg:py-28">
-          <Reveal>
-            <div className="card-dark p-8 lg:p-12 max-w-3xl">
-              <p className="label-xs text-brand mb-4">Research work</p>
-              <h2 className="heading-md text-white mb-6">
-                Financial Behavior Intelligence Models for Financial Inclusion
-              </h2>
-              <p className="body-md text-zinc-400 leading-relaxed mb-4">
-                As part of the GICA Research Program, I worked on applying AI and data analytics to a question that matters in East Africa: how can transaction behaviour predict creditworthiness for people who have never had a bank account?
-              </p>
-              <p className="body-md text-zinc-400 leading-relaxed mb-8">
-                The work involved building models that analyse mobile money patterns, spending behaviour, and social signals to generate financial profiles — giving underserved populations a path into formal financial systems without requiring traditional credit history.
-              </p>
-              <p className="body-sm text-zinc-500 italic">
-                This research shaped how I think about data, ethics, and the responsibility that comes with building systems that affect real people's lives.
-              </p>
-            </div>
+          <Reveal className="flex flex-col items-center text-center max-w-2xl mx-auto">
+            <p className="label-xs text-brand mb-4">Research work</p>
+            <h2 className="heading-md text-white mb-6">
+              Financial Behavior Intelligence Models for Financial Inclusion
+            </h2>
+            <p className="body-md text-zinc-400 leading-relaxed mb-4">
+              Applying AI and data analytics to a question that matters in East Africa: how can transaction behaviour predict creditworthiness for people who have never had a bank account?
+            </p>
+            <p className="body-md text-zinc-400 leading-relaxed mb-6">
+              The research explores mobile money patterns, spending behaviour, and social signals to generate financial profiles, giving underserved populations a path into formal financial systems without requiring traditional credit history.
+            </p>
           </Reveal>
         </div>
       </div>
@@ -242,7 +172,7 @@ export default function AboutPage() {
               Open to the <span className="text-brand">right opportunity.</span>
             </h2>
             <p className="body-lg text-zinc-400">
-              Whether it's a freelance project, a long-term contract, or a full-time role — if the work is meaningful and the team is serious, I want to hear about it.
+              Whether it's a freelance project, a long-term contract, or a full-time role, if the work is meaningful and the team is serious, I want to hear about it.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <Link to="/#contact" className="btn-primary justify-center">
